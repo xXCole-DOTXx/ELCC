@@ -24,18 +24,18 @@ namespace EnvApp.Models.DB
         public string DSN_PM { get; set; }
         public string History { get; set; }
         public string History_PM { get; set; }
-        public bool? Review_Exempt_H { get; set; }
-        public bool? SHPO_Approval_H { get; set; }
+        public bool Review_Exempt_H { get; set; }
+        public bool SHPO_Approval_H { get; set; }
         public string Archaeology { get; set; }
         public string Archaeology_PM { get; set; }
-        public bool? Review_Exempt_A { get; set; }
-        public bool? SHPO_Approval_A { get; set; }
-        public bool? ESA_Key { get; set; }
-        public bool? Crayfish { get; set; }
-        public bool? NLEB_4D { get; set; }
-        public bool? USFWS { get; set; }
-        public bool? Mussel_Habitat { get; set; }
-        public bool? Bat_Habitat { get; set; }
+        public bool Review_Exempt_A { get; set; }
+        public bool SHPO_Approval_A { get; set; }
+        public bool ESA_Key { get; set; }
+        public bool Crayfish { get; set; }
+        public bool NLEB_4D { get; set; }
+        public bool USFWS { get; set; }
+        public bool Mussel_Habitat { get; set; }
+        public bool Bat_Habitat { get; set; }
         public string Adduser { get; set; }
         public DateTime? Date_Added { get; set; }
 

@@ -18,7 +18,7 @@
             </div>
             <div class="form-group">
                 <label>Email Address</label>
-                <input asp-for="Email_Address" class="form-control" />
+                <input asp-for="Email_Address" class="form-control" type="email" />
                 <span asp-validation-for="Email_Address" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -28,7 +28,7 @@
             </div>
             <div class="form-group">
                 <label>User Type</label>
-                <select name="uTypes" class="form-control" asp-items="@ViewBag.userTypes"></select>
+                <select asp-for="User_Type" name="User_Type" class="form-control" asp-items="@ViewBag.userTypes"></select>
                 <span asp-validation-for="User_Type" class="text-danger"></span>
             </div>
             <div class="form-group">

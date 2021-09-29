@@ -57,6 +57,8 @@ namespace EnvApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                project_Screen.Adduser = User.Identity.Name;
+                project_Screen.Date_Added = DateTime.Today;
                 _context.Add(project_Screen);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

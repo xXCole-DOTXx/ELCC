@@ -21,16 +21,6 @@ namespace EnvApp.Controllers
         // GET: NR_User
         public async Task<IActionResult> Index()
         {
-            List<SelectListItem> userTypes = new()
-            {
-                new SelectListItem { Value = "Admin", Text = "Admin" },
-                new SelectListItem { Value = "Staff", Text = "Staff" },
-                new SelectListItem { Value = "Hisorian", Text = "Historian" },
-                new SelectListItem { Value = "Archiologist", Text = "Archiologist" },
-                new SelectListItem { Value = "Environmental Manager", Text = "Environmental Manager" },
-                new SelectListItem { Value = "Project Manager", Text = "Project Manager" }
-            };
-            ViewBag.userTypes = userTypes;
             return View(await _context.NR_Users.ToListAsync());
         }
 
@@ -55,6 +45,16 @@ namespace EnvApp.Controllers
         // GET: NR_User/Create
         public IActionResult Create()
         {
+            List<SelectListItem> userTypes = new()
+            {
+                new SelectListItem { Value = "Admin", Text = "Admin" },
+                new SelectListItem { Value = "Staff", Text = "Staff" },
+                new SelectListItem { Value = "Hisorian", Text = "Historian" },
+                new SelectListItem { Value = "Archiologist", Text = "Archiologist" },
+                new SelectListItem { Value = "Environmental Manager", Text = "Environmental Manager" },
+                new SelectListItem { Value = "Project Manager", Text = "Project Manager" }
+            };
+            ViewBag.userTypes = userTypes;
             return View();
         }
 
@@ -67,6 +67,7 @@ namespace EnvApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                System.Diagnostics.Debug.WriteLine(nR_User.User_Type);
                 _context.Add(nR_User);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
