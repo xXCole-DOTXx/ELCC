@@ -1,0 +1,161 @@
+﻿@model IEnumerable<EnvApp.Models.DB.Project_Screen>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Screening Forms</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                State Project Number
+            </th>
+            <th>
+                Federal Project Number
+            </th>
+            <th>
+                Project Name
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.County)
+            </th>
+            <th>
+                Memo Date
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.From)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Authorization)
+            </th>
+            <th>
+                DSN_PM
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.History)
+            </th>
+            <th>
+                History PM
+            </th>
+            <th>
+                Review Exempt H
+            </th>
+            <th>
+                SHPO Approval H
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Archaeology)
+            </th>
+            <th>
+                Archaeology PM
+            </th>
+            <th>
+                Review Exempt A
+            </th>
+            <th>
+                SHPO Approval A
+            </th>
+            <th>
+                ESA Key
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Crayfish)
+            </th>
+            <th>
+                NLEB 4D
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.USFWS)
+            </th>
+            <th>
+                Mussel Habitat
+            </th>
+            <th>
+                Bat Habitat
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.State_Project_Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Federal_Project_Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Project_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.County)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Memo_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.From)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Authorization)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DSN_PM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.History)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.History_PM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Review_Exempt_H)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SHPO_Approval_H)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Archaeology)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Archaeology_PM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Review_Exempt_A)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SHPO_Approval_A)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ESA_Key)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Crayfish)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NLEB_4D)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.USFWS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mussel_Habitat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bat_Habitat)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

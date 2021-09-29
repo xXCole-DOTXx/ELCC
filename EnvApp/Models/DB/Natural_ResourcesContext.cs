@@ -18,7 +18,7 @@ namespace EnvApp.Models.DB
         }
 
         public virtual DbSet<NR_User> NR_Users { get; set; }
-        public virtual DbSet<ProjectScreen> ProjectScreens { get; set; }
+        public virtual DbSet<Project_Screen> Project_Screen { get; set; }
         public virtual DbSet<TypeOne> TypeOnes { get; set; }
 
      /*   protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

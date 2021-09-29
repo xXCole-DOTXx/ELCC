@@ -9,32 +9,22 @@ using EnvApp.Models.DB;
 
 namespace EnvApp.Controllers
 {
-    public class NR_UserController : Controller
+    public class Project_ScreenController : Controller
     {
         private readonly Natural_ResourcesContext _context;
 
-        public NR_UserController(Natural_ResourcesContext context)
+        public Project_ScreenController(Natural_ResourcesContext context)
         {
             _context = context;
         }
 
-        // GET: NR_User
+        // GET: Project_Screen
         public async Task<IActionResult> Index()
         {
-            List<SelectListItem> userTypes = new()
-            {
-                new SelectListItem { Value = "Admin", Text = "Admin" },
-                new SelectListItem { Value = "Staff", Text = "Staff" },
-                new SelectListItem { Value = "Hisorian", Text = "Historian" },
-                new SelectListItem { Value = "Archiologist", Text = "Archiologist" },
-                new SelectListItem { Value = "Environmental Manager", Text = "Environmental Manager" },
-                new SelectListItem { Value = "Project Manager", Text = "Project Manager" }
-            };
-            ViewBag.userTypes = userTypes;
-            return View(await _context.NR_Users.ToListAsync());
+            return View(await _context.Project_Screen.ToListAsync());
         }
 
-        // GET: NR_User/Details/5
+        // GET: Project_Screen/Details/5
         public async Task<IActionResult> Details(long? id)
         {
             if (id == null)
@@ -42,39 +32,39 @@ namespace EnvApp.Controllers
                 return NotFound();
             }
 
-            var nR_User = await _context.NR_Users
+            var project_Screen = await _context.Project_Screen
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (nR_User == null)
+            if (project_Screen == null)
             {
                 return NotFound();
             }
 
-            return View(nR_User);
+            return View(project_Screen);
         }
 
-        // GET: NR_User/Create
+        // GET: Project_Screen/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: NR_User/Create
+        // POST: Project_Screen/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Email_Address,Section,User_Type,AD_Number")] NR_User nR_User)
+        public async Task<IActionResult> Create([Bind("ID,State_Project_Number,Federal_Project_Number,Project_Name,County,Memo_Date,From,Authorization,DSN_PM,History,History_PM,Review_Exempt_H,SHPO_Approval_H,Archaeology,Archaeology_PM,Review_Exempt_A,SHPO_Approval_A,ESA_Key,Crayfish,NLEB_4D,USFWS,Mussel_Habitat,Bat_Habitat,Adduser,Date_Added")] Project_Screen project_Screen)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(nR_User);
+                _context.Add(project_Screen);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(nR_User);
+            return View(project_Screen);
         }
 
-        // GET: NR_User/Edit/5
+        // GET: Project_Screen/Edit/5
         public async Task<IActionResult> Edit(long? id)
         {
             if (id == null)
@@ -82,22 +72,22 @@ namespace EnvApp.Controllers
                 return NotFound();
             }
 
-            var nR_User = await _context.NR_Users.FindAsync(id);
-            if (nR_User == null)
+            var project_Screen = await _context.Project_Screen.FindAsync(id);
+            if (project_Screen == null)
             {
                 return NotFound();
             }
-            return View(nR_User);
+            return View(project_Screen);
         }
 
-        // POST: NR_User/Edit/5
+        // POST: Project_Screen/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("ID,Name,Email_Address,Section,User_Type,AD_Number")] NR_User nR_User)
+        public async Task<IActionResult> Edit(long id, [Bind("ID,State_Project_Number,Federal_Project_Number,Project_Name,County,Memo_Date,From,Authorization,DSN_PM,History,History_PM,Review_Exempt_H,SHPO_Approval_H,Archaeology,Archaeology_PM,Review_Exempt_A,SHPO_Approval_A,ESA_Key,Crayfish,NLEB_4D,USFWS,Mussel_Habitat,Bat_Habitat,Adduser,Date_Added")] Project_Screen project_Screen)
         {
-            if (id != nR_User.ID)
+            if (id != project_Screen.ID)
             {
                 return NotFound();
             }
@@ -106,12 +96,12 @@ namespace EnvApp.Controllers
             {
                 try
                 {
-                    _context.Update(nR_User);
+                    _context.Update(project_Screen);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!NR_UserExists(nR_User.ID))
+                    if (!Project_ScreenExists(project_Screen.ID))
                     {
                         return NotFound();
                     }
@@ -122,10 +112,10 @@ namespace EnvApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(nR_User);
+            return View(project_Screen);
         }
 
-        // GET: NR_User/Delete/5
+        // GET: Project_Screen/Delete/5
         public async Task<IActionResult> Delete(long? id)
         {
             if (id == null)
@@ -133,30 +123,30 @@ namespace EnvApp.Controllers
                 return NotFound();
             }
 
-            var nR_User = await _context.NR_Users
+            var project_Screen = await _context.Project_Screen
                 .FirstOrDefaultAsync(m => m.ID == id);
-            if (nR_User == null)
+            if (project_Screen == null)
             {
                 return NotFound();
             }
 
-            return View(nR_User);
+            return View(project_Screen);
         }
 
-        // POST: NR_User/Delete/5
+        // POST: Project_Screen/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long id)
         {
-            var nR_User = await _context.NR_Users.FindAsync(id);
-            _context.NR_Users.Remove(nR_User);
+            var project_Screen = await _context.Project_Screen.FindAsync(id);
+            _context.Project_Screen.Remove(project_Screen);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool NR_UserExists(long id)
+        private bool Project_ScreenExists(long id)
         {
-            return _context.NR_Users.Any(e => e.ID == id);
+            return _context.Project_Screen.Any(e => e.ID == id);
         }
     }
 }

@@ -149,3 +149,8 @@ C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Debug\net5.0\Razor
 C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Debug\net5.0\Razor\Views\NR_User\Details.cshtml.g.cs
 C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Debug\net5.0\Razor\Views\NR_User\Edit.cshtml.g.cs
 C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Debug\net5.0\Razor\Views\NR_User\Index.cshtml.g.cs
+C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Debug\net5.0\Razor\Views\Project_Screen\Create.cshtml.g.cs
+C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Debug\net5.0\Razor\Views\Project_Screen\Delete.cshtml.g.cs
+C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Debug\net5.0\Razor\Views\Project_Screen\Details.cshtml.g.cs
+C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Debug\net5.0\Razor\Views\Project_Screen\Edit.cshtml.g.cs
+C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Debug\net5.0\Razor\Views\Project_Screen\Index.cshtml.g.cs

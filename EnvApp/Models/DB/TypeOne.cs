@@ -38,6 +38,6 @@ namespace EnvApp.Models.DB
         public string Adduser { get; set; }
         public DateTime? DateAdded { get; set; }
 
-        public virtual ProjectScreen StateProject { get; set; }
+        public virtual Project_Screen StateProject { get; set; }
     }
 }

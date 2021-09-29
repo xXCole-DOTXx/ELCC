@@ -6,9 +6,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace EnvApp.Models.DB
 {
-    public partial class ProjectScreen
+    public partial class Project_Screen
     {
-        public ProjectScreen()
+        public Project_Screen()
         {
             TypeOnes = new HashSet<TypeOne>();
         }
