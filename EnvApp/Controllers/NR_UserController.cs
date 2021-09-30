@@ -48,13 +48,21 @@ namespace EnvApp.Controllers
             List<SelectListItem> userTypes = new()
             {
                 new SelectListItem { Value = "Admin", Text = "Admin" },
-                new SelectListItem { Value = "Staff", Text = "Staff" },
-                new SelectListItem { Value = "Hisorian", Text = "Historian" },
-                new SelectListItem { Value = "Archiologist", Text = "Archiologist" },
-                new SelectListItem { Value = "Environmental Manager", Text = "Environmental Manager" },
-                new SelectListItem { Value = "Project Manager", Text = "Project Manager" }
+                new SelectListItem { Value = "Project Manager", Text = "Project Manager" },
+                new SelectListItem { Value = "Unit Leader", Text = "Unit Leader" }
             };
             ViewBag.userTypes = userTypes;
+
+            List<SelectListItem> sections = new()
+            {
+                new SelectListItem { Value = "Management", Text = "Management" },
+                new SelectListItem { Value = "Natural Resources", Text = "Natural Resources" },
+                new SelectListItem { Value = "History", Text = "History" },
+                new SelectListItem { Value = "Archaeology", Text = "Archaeology" },
+                new SelectListItem { Value = "Eng Support", Text = "Eng Support" },
+                new SelectListItem { Value = "Director", Text = "Director" }
+            };
+            ViewBag.sections = sections;
             return View();
         }
 
