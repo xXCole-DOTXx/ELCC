@@ -4,9 +4,8 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<h1>Enter a new project screening form</h1>
 
-<h4>Project_Screen</h4>
 <hr />
 <div class="row">
     <div class="col-md-12">
@@ -15,19 +14,19 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label asp-for="State_Project_Number" class="control-label"></label>
+                    <label class="control-label">State Project Number</label>
                     <input asp-for="State_Project_Number" class="form-control" />
                     <span asp-validation-for="State_Project_Number" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-4">
-                    <label asp-for="Federal_Project_Number" class="control-label"></label>
+                    <label class="control-label">Federal Project Number</label>
                     <input asp-for="Federal_Project_Number" class="form-control" />
                     <span asp-validation-for="Federal_Project_Number" class="text-danger"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label asp-for="Project_Name" class="control-label"></label>
+                    <label class="control-label">Project Name</label>
                     <input asp-for="Project_Name" class="form-control" />
                     <span asp-validation-for="Project_Name" class="text-danger"></span>
                 </div>
@@ -39,7 +38,7 @@
             </div>
             <div class="row">
                 <div class="form-group col-md-3">
-                    <label asp-for="Memo_Date" class="control-label"></label>
+                    <label class="control-label">Memo Date</label>
                     <input asp-for="Memo_Date" class="form-control" type="date" />
                     <span asp-validation-for="Memo_Date" class="text-danger"></span>
                 </div>
@@ -54,7 +53,7 @@
                     <span asp-validation-for="Authorization" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-3">
-                    <label asp-for="DSN_PM" class="control-label"></label>
+                    <label class="control-label">DSN PM</label>
                     <input asp-for="DSN_PM" class="form-control" />
                     <span asp-validation-for="DSN_PM" class="text-danger"></span>
                 </div>
@@ -69,20 +68,20 @@
                     <span asp-validation-for="History" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-4">
-                    <label asp-for="History_PM" class="control-label"></label>
+                    <label class="control-label">History PM</label>
                     <input asp-for="History_PM" class="form-control" />
                     <span asp-validation-for="History_PM" class="text-danger"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label asp-for="Review_Exempt_H" class="control-label"></label>
-                    <input asp-for="Review_Exempt_H" class="form-control" type="checkbox" />
+                    <label class="control-label">Review Exempt H</label>
+                    <select asp-for="Review_Exempt_H" name="Review_Exempt_H" class="form-control" asp-items="@ViewBag.options"></select>
                     <span asp-validation-for="Review_Exempt_H" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-4">
-                    <label asp-for="SHPO_Approval_H" class="control-label"></label>
-                    <input asp-for="SHPO_Approval_H" class="form-control" type="checkbox" />
+                    <label class="control-label">SHPO Approval H</label>
+                    <select asp-for="SHPO_Approval_H" name="SHPO_Approval_H" class="form-control" asp-items="@ViewBag.options"></select>
                     <span asp-validation-for="SHPO_Approval_H" class="text-danger"></span>
                 </div>
             </div>
@@ -96,20 +95,20 @@
                     <span asp-validation-for="Archaeology" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-4">
-                    <label asp-for="Archaeology_PM" class="control-label"></label>
+                    <label class="control-label">Archaeology PM</label>
                     <input asp-for="Archaeology_PM" class="form-control" />
                     <span asp-validation-for="Archaeology_PM" class="text-danger"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label asp-for="Review_Exempt_A" class="control-label"></label>
-                    <input asp-for="Review_Exempt_A" class="form-control" type="checkbox" />
+                    <label class="control-label">Review Exempt A</label>
+                    <select asp-for="Review_Exempt_A" name="Review_Exempt_A" class="form-control" asp-items="@ViewBag.options"></select>
                     <span asp-validation-for="Review_Exempt_A" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-4">
-                    <label asp-for="SHPO_Approval_A" class="control-label"></label>
-                    <input asp-for="SHPO_Approval_A" class="form-control" type="checkbox" />
+                    <label class="control-label">SHPO Approval A</label>
+                    <select asp-for="SHPO_Approval_A" name="SHPO_Approval_A" class="form-control" asp-items="@ViewBag.options"></select>
                     <span asp-validation-for="SHPO_Approval_A" class="text-danger"></span>
                 </div>
             </div>
@@ -118,58 +117,58 @@
 
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label asp-for="ESA_Key" class="control-label"></label>
-                    <input asp-for="ESA_Key" class="form-control" type="checkbox" />
+                    <label class="control-label">ESA Key</label>
+                    <select asp-for="ESA_Key" name="ESA_Key" class="form-control" asp-items="@ViewBag.options"></select>
                     <span asp-validation-for="ESA_Key" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-4">
                     <label asp-for="Crayfish" class="control-label"></label>
-                    <input asp-for="Crayfish" class="form-control" type="checkbox" />
+                    <select asp-for="Crayfish" name="Crayfish" class="form-control" asp-items="@ViewBag.options"></select>
                     <span asp-validation-for="Crayfish" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-4">
-                    <label asp-for="NLEB_4D" class="control-label"></label>
-                    <input asp-for="NLEB_4D" class="form-control" type="checkbox" />
+                    <label class="control-label">NLEB 4D</label>
+                    <select asp-for="NLEB_4D" name="NLEB_4D" class="form-control" asp-items="@ViewBag.options"></select>
                     <span asp-validation-for="NLEB_4D" class="text-danger"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-4">
                     <label asp-for="USFWS" class="control-label"></label>
-                    <input asp-for="USFWS" class="form-control" type="checkbox" />
+                    <select asp-for="USFWS" name="USFWS" class="form-control" asp-items="@ViewBag.options"></select>
                     <span asp-validation-for="USFWS" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-4">
-                    <label asp-for="USFWS_Type" class="control-label"></label>
+                    <label class="control-label">USFWS Type</label>
                     <input asp-for="USFWS_Type" class="form-control" />
                     <span asp-validation-for="USFWS_Type" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-4">
-                    <label asp-for="Mussel_Habitat" class="control-label"></label>
-                    <input asp-for="Mussel_Habitat" class="form-control" type="checkbox" />
+                    <label class="control-label">Mussel Habitat</label>
+                    <select asp-for="Mussel_Habitat" name="Mussel_Habitat" class="form-control" asp-items="@ViewBag.options"></select>
                     <span asp-validation-for="Mussel_Habitat" class="text-danger"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label asp-for="Bat_Habitat" class="control-label"></label>
-                    <input asp-for="Bat_Habitat" class="form-control" type="checkbox" />
+                    <label class="control-label">Bat Habitat</label>
+                    <select asp-for="Bat_Habitat" name="Bat_Habitat" class="form-control" asp-items="@ViewBag.options"></select>
                     <span asp-validation-for="Bat_Habitat" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-4">
-                    <label asp-for="Mussel_Stream" class="control-label"></label>
-                    <input asp-for="Mussel_Stream" class="form-control" type="checkbox" />
+                    <label class="control-label">Mussel Stream</label>
+                    <select asp-for="Mussel_Stream" name="Mussel_Stream" class="form-control" asp-items="@ViewBag.options"></select>
                     <span asp-validation-for="Mussel_Stream" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-4">
-                    <label asp-for="Mussel_Stream_Survey" class="control-label"></label>
+                    <label class="control-label">Mussel Stream Survey</label>
                     <input asp-for="Mussel_Stream_Survey" class="form-control" />
                     <span asp-validation-for="Mussel_Stream_Survey" class="text-danger"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-3">
-                    <label asp-for="ToPo_Quad_Name" class="control-label"></label>
+                    <label class="control-label">ToPo Quad Name</label>
                     <input asp-for="ToPo_Quad_Name" class="form-control" />
                     <span asp-validation-for="ToPo_Quad_Name" class="text-danger"></span>
                 </div>
@@ -179,7 +178,7 @@
                     <span asp-validation-for="Bars" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-3">
-                    <label asp-for="Within_Airport" class="control-label"></label>
+                    <label class="control-label">Within Airport</label>
                     <input asp-for="Within_Airport" class="form-control" />
                     <span asp-validation-for="Within_Airport" class="text-danger"></span>
                 </div>

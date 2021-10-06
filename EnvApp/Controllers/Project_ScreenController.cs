@@ -45,6 +45,12 @@ namespace EnvApp.Controllers
         // GET: Project_Screen/Create
         public IActionResult Create()
         {
+            List<SelectListItem> options = new()
+            {
+                new SelectListItem { Value = "True", Text = "Yes" },
+                new SelectListItem { Value = "False", Text = "No" }
+            };
+            ViewBag.options = options;
             return View();
         }
 
