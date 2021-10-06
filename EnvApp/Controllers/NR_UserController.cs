@@ -71,7 +71,7 @@ namespace EnvApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Email_Address,Section,User_Type,AD_Number")] NR_User nR_User)
+        public async Task<IActionResult> Create([Bind("ID,Name,Email_Address,Unit,User_Type,AD_Number")] NR_User nR_User)
         {
             if (ModelState.IsValid)
             {
@@ -104,7 +104,7 @@ namespace EnvApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("ID,Name,Email_Address,Section,User_Type,AD_Number")] NR_User nR_User)
+        public async Task<IActionResult> Edit(long id, [Bind("ID,Name,Email_Address,Unit,User_Type,AD_Number")] NR_User nR_User)
         {
             if (id != nR_User.ID)
             {
