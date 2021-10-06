@@ -34,8 +34,15 @@ namespace EnvApp.Models.DB
         public bool Crayfish { get; set; }
         public bool NLEB_4D { get; set; }
         public bool USFWS { get; set; }
+        public string USFWS_Type { get; set; }
         public bool Mussel_Habitat { get; set; }
+        public bool Mussel_Stream { get; set; }
+        public string Mussel_Stream_Survey { get; set; }
+        public string Within_Airport { get; set; }
+        public string? ToPo_Quad_Name { get; set; }
         public bool Bat_Habitat { get; set; }
+        public string Bars { get; set; }
+        public float? Coordinates { get; set; }
         public string Adduser { get; set; }
         public DateTime? Date_Added { get; set; }
 
