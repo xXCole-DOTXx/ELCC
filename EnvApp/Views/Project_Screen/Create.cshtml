@@ -54,7 +54,7 @@
                 </div>
                 <div class="form-group col-md-3">
                     <label class="control-label">DSN PM</label>
-                    <input asp-for="DSN_PM" class="form-control" />
+                    <select asp-for="DSN_PM" name="DSN_PM" class="form-control" asp-items="@(new SelectList(ViewBag.users, "ID", "Name"))"></select>
                     <span asp-validation-for="DSN_PM" class="text-danger"></span>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">History PM</label>
-                    <input asp-for="History_PM" class="form-control" />
+                    <select asp-for="History_PM" name="History_PM" class="form-control" asp-items="@(new SelectList(ViewBag.histUsers, "ID", "Name"))"></select>
                     <span asp-validation-for="History_PM" class="text-danger"></span>
                 </div>
             </div>
@@ -96,7 +96,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">Archaeology PM</label>
-                    <input asp-for="Archaeology_PM" class="form-control" />
+                    <select asp-for="Archaeology_PM" name="Archaeology_PM" class="form-control" asp-items="@(new SelectList(ViewBag.archUsers, "ID", "Name"))"></select>
                     <span asp-validation-for="Archaeology_PM" class="text-danger"></span>
                 </div>
             </div>

@@ -45,7 +45,26 @@ namespace EnvApp.Controllers
         // GET: Project_Screen/Create
         public IActionResult Create()
         {
-            List<SelectListItem> options = new()
+            List<NR_User> users = new List<NR_User>();
+            users = (from c in _context.NR_Users select c).ToList();
+            users.Insert(0, new NR_User { ID = 0, Name = "Select" });
+            ViewBag.users = users;
+
+            List<NR_User> histUsers = new List<NR_User>();
+            histUsers = (from s in _context.NR_Users
+                            where s.Unit == "History"
+                            select s).ToList();
+            histUsers.Insert(0, new NR_User { ID = 0, Name = "Select" });
+            ViewBag.histUsers = histUsers;
+
+            List<NR_User> archUsers = new List<NR_User>();
+            archUsers = (from s in _context.NR_Users
+                         where s.Unit == "Archaeology"
+                         select s).ToList();
+            archUsers.Insert(0, new NR_User { ID = 0, Name = "Select" });
+            ViewBag.archUsers = archUsers.ToList();
+            
+            List < SelectListItem > options = new()
             {
                 new SelectListItem { Value = "True", Text = "Yes" },
                 new SelectListItem { Value = "False", Text = "No" }
