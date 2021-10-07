@@ -43,6 +43,7 @@ namespace EnvApp.Models.DB
         public bool Bat_Habitat { get; set; }
         public string Bars { get; set; }
         public float? Coordinates { get; set; }
+        public string? Natural_Resources_Notes { get; set; }
         public string Adduser { get; set; }
         public DateTime? Date_Added { get; set; }
 
