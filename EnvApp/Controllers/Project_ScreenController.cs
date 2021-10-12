@@ -19,10 +19,22 @@ namespace EnvApp.Controllers
         }
 
         // GET: Project_Screen
-        public async Task<IActionResult> Index(string sortOrder, string searchString)
+        public async Task<IActionResult> Index(string sortOrder, string searchString, string currentFilter, int? pageNumber)
         {
             ViewData["DateSort"] = String.IsNullOrEmpty(sortOrder) ? "date_desc" : "";
             ViewData["ProjNumSort"] = sortOrder == "Num" ? "num_desc" : "Num";
+            ViewData["CurrentFilter"] = searchString;
+            ViewData["CurrentSort"] = sortOrder;
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
             ViewData["CurrentFilter"] = searchString;
 
             var forms = from s in _context.Project_Screen
@@ -50,7 +62,8 @@ namespace EnvApp.Controllers
                     forms = forms.OrderBy(s => s.Date_Added);
                     break;
             }
-            return View(await forms.AsNoTracking().ToListAsync());
+            int pageSize = 5;
+            return View(await PaginatedList<Project_Screen>.CreateAsync(forms.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
         // GET: Project_Screen/Details/5
