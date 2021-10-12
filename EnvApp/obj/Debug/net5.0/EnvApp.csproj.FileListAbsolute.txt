@@ -154,3 +154,4 @@ C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Debug\net5.0\Razor
 C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Debug\net5.0\Razor\Views\Project_Screen\Details.cshtml.g.cs
 C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Debug\net5.0\Razor\Views\Project_Screen\Edit.cshtml.g.cs
 C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Debug\net5.0\Razor\Views\Project_Screen\Index.cshtml.g.cs
+C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\bin\Debug\net5.0\libman.json

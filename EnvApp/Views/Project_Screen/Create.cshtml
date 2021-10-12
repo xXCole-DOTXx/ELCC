@@ -117,56 +117,115 @@
 
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label class="control-label">ESA Key</label>
-                    <select asp-for="ESA_Key" name="ESA_Key" class="form-control" asp-items="@ViewBag.options"></select>
-                    <span asp-validation-for="ESA_Key" class="text-danger"></span>
+                    <label asp-for="USFWS" class="control-label"></label>
+                    <select asp-for="USFWS" name="USFWS" class="form-control" asp-items="@ViewBag.options"></select>
+                    <span asp-validation-for="USFWS" class="text-danger"></span>
                 </div>
+                <div class="form-group col-md-8" id="usfwsType">
+                    <label class="control-label">USFWS Type</label>
+                    <textarea asp-for="USFWS_Type" class="form-control"></textarea>
+                    <span asp-validation-for="USFWS_Type" class="text-danger"></span>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#usfwsType').hide();
+                    $('#USFWS').change(function () {
+                        var selectedValue = $(this).val();
+                        console.log(selectedValue);
+                        if (selectedValue == "True") {
+                            $('#usfwsType').show();
+                        }
+                        else {
+                            $('#usfwsType').hide();
+                        }
+                    });
+                });
+            </script>
+
+            <div class="row">
                 <div class="form-group col-md-4">
                     <label asp-for="Crayfish" class="control-label"></label>
                     <select asp-for="Crayfish" name="Crayfish" class="form-control" asp-items="@ViewBag.options"></select>
                     <span asp-validation-for="Crayfish" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-8" id="crayfishSurvey">
+                    <label class="control-label">Crayfish Habitat Survey</label>
+                    <textarea asp-for="Crayfish_Habitat_Survey" class="form-control"></textarea>
+                    <span asp-validation-for="Crayfish_Habitat_Survey" class="text-danger"></span>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#crayfishSurvey').hide();
+                    $('#Crayfish').change(function () {
+                        var selectedValue = $(this).val();
+                        console.log(selectedValue);
+                        if (selectedValue == "True") {
+                            $('#crayfishSurvey').show();
+                        }
+                        else {
+                            $('#crayfishSurvey').hide();
+                        }
+                    });
+                });
+            </script>
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">Mussel Stream</label>
+                    <select asp-for="Mussel_Stream" name="Mussel_Stream" class="form-control" asp-items="@ViewBag.options"></select>
+                    <span asp-validation-for="Mussel_Stream" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-8" id="musselSurvey">
+                    <label class="control-label">Mussel Stream Survey</label>
+                    <textarea asp-for="Mussel_Stream_Survey" class="form-control"></textarea>
+                    <span asp-validation-for="Mussel_Stream_Survey" class="text-danger"></span>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#musselSurvey').hide();
+                    $('#Mussel_Stream').change(function () {
+                        var selectedValue = $(this).val();
+                        console.log(selectedValue);
+                        if (selectedValue == "True") {
+                            $('#musselSurvey').show();
+                        }
+                        else {
+                            $('#musselSurvey').hide();
+                        }
+                    });
+                });
+            </script>
+
+            <hr />
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">ESA Key</label>
+                    <select asp-for="ESA_Key" name="ESA_Key" class="form-control" asp-items="@ViewBag.options"></select>
+                    <span asp-validation-for="ESA_Key" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">NLEB 4D</label>
                     <select asp-for="NLEB_4D" name="NLEB_4D" class="form-control" asp-items="@ViewBag.options"></select>
                     <span asp-validation-for="NLEB_4D" class="text-danger"></span>
                 </div>
-            </div>
-            <div class="row">
-                <div class="form-group col-md-4">
-                    <label asp-for="USFWS" class="control-label"></label>
-                    <select asp-for="USFWS" name="USFWS" class="form-control" asp-items="@ViewBag.options"></select>
-                    <span asp-validation-for="USFWS" class="text-danger"></span>
-                </div>
-                <div class="form-group col-md-4">
-                    <label class="control-label">USFWS Type</label>
-                    <input asp-for="USFWS_Type" class="form-control" />
-                    <span asp-validation-for="USFWS_Type" class="text-danger"></span>
-                </div>
-                <div class="form-group col-md-4">
-                    <label class="control-label">Mussel Habitat</label>
-                    <select asp-for="Mussel_Habitat" name="Mussel_Habitat" class="form-control" asp-items="@ViewBag.options"></select>
-                    <span asp-validation-for="Mussel_Habitat" class="text-danger"></span>
+                <div class="row">
+                    <div class="form-group col-md-4">
+                        <label class="control-label">Mussel Habitat</label>
+                        <select asp-for="Mussel_Habitat" name="Mussel_Habitat" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="Mussel_Habitat" class="text-danger"></span>
+                    </div>
                 </div>
             </div>
             <div class="row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                     <label class="control-label">Bat Habitat</label>
                     <select asp-for="Bat_Habitat" name="Bat_Habitat" class="form-control" asp-items="@ViewBag.options"></select>
                     <span asp-validation-for="Bat_Habitat" class="text-danger"></span>
                 </div>
-                <div class="form-group col-md-4">
-                    <label class="control-label">Mussel Stream</label>
-                    <select asp-for="Mussel_Stream" name="Mussel_Stream" class="form-control" asp-items="@ViewBag.options"></select>
-                    <span asp-validation-for="Mussel_Stream" class="text-danger"></span>
-                </div>
-                <div class="form-group col-md-4">
-                    <label class="control-label">Mussel Stream Survey</label>
-                    <input asp-for="Mussel_Stream_Survey" class="form-control" />
-                    <span asp-validation-for="Mussel_Stream_Survey" class="text-danger"></span>
-                </div>
-            </div>
-            <div class="row">
                 <div class="form-group col-md-3">
                     <label class="control-label">ToPo Quad Name</label>
                     <input asp-for="ToPo_Quad_Name" class="form-control" />
@@ -182,21 +241,24 @@
                     <input asp-for="Within_Airport" class="form-control" />
                     <span asp-validation-for="Within_Airport" class="text-danger"></span>
                 </div>
-                <div class="form-group col-md-3">
+            </div>
+
+
+            <hr />
+
+            <div class="row">
+                <div class="form-group col-md-4">
                     <label asp-for="Coordinates" class="control-label"></label>
                     <input asp-for="Coordinates" class="form-control" />
                     <span asp-validation-for="Coordinates" class="text-danger"></span>
                 </div>
-
-                <hr />
-
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-8">
                     <label class="control-label">Natural Resources Notes</label>
-                    <input asp-for="Natural_Resources_Notes" class="form-control" />
+                    <textarea asp-for="Natural_Resources_Notes" class="form-control"></textarea>
                     <span asp-validation-for="Natural_Resources_Notes" class="text-danger"></span>
                 </div>
-
             </div>
+
 
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
