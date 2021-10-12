@@ -19,9 +19,38 @@ namespace EnvApp.Controllers
         }
 
         // GET: Project_Screen
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string searchString)
         {
-            return View(await _context.Project_Screen.ToListAsync());
+            ViewData["DateSort"] = String.IsNullOrEmpty(sortOrder) ? "date_desc" : "";
+            ViewData["ProjNumSort"] = sortOrder == "Num" ? "num_desc" : "Num";
+            ViewData["CurrentFilter"] = searchString;
+
+            var forms = from s in _context.Project_Screen
+                        select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                forms = forms.Where(s => s.State_Project_Number.Contains(searchString)
+                                       || s.Project_Name.Contains(searchString)
+                                       || s.Federal_Project_Number.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "num_desc":
+                    forms = forms.OrderByDescending(s => s.State_Project_Number);
+                    break;
+                case "Num":
+                    forms = forms.OrderBy(s => s.State_Project_Number);
+                    break;
+                case "date_desc":
+                    forms = forms.OrderByDescending(s => s.Date_Added);
+                    break;
+                default:
+                    forms = forms.OrderBy(s => s.Date_Added);
+                    break;
+            }
+            return View(await forms.AsNoTracking().ToListAsync());
         }
 
         // GET: Project_Screen/Details/5

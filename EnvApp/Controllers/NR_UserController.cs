@@ -19,9 +19,20 @@ namespace EnvApp.Controllers
         }
 
         // GET: NR_User
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.NR_Users.ToListAsync());
+            ViewData["CurrentFilter"] = searchString;
+
+            var users = from s in _context.NR_Users
+                           select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                users = users.Where(s => s.Name.Contains(searchString)
+                                       || s.AD_Number.Contains(searchString));
+            }
+
+            return View(await users.AsNoTracking().ToListAsync());
         }
 
         // GET: NR_User/Details/5
