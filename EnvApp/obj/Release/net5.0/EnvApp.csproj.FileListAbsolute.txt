@@ -154,3 +154,4 @@ C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Release\net5.0\Env
 C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Release\net5.0\ref\EnvApp.dll
 C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Release\net5.0\EnvApp.pdb
 C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Release\net5.0\EnvApp.genruntimeconfig.cache
+C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\bin\Release\net5.0\libman.json

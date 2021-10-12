@@ -35,9 +35,16 @@ C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Release\net5.0\Pub
 C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\jquery\dist\jquery.js
 C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\jquery\dist\jquery.min.js
 C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\jquery\dist\jquery.min.map
+C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\jquery\jquery.js
+C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\jquery\jquery.min.js
+C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\jquery\jquery.min.map
+C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\jquery\jquery.slim.js
+C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\jquery\jquery.slim.min.js
+C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\jquery\jquery.slim.min.map
 C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Release\net5.0\PubTmp\Out\wwwroot\lib\jquery\LICENSE.txt
 C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Release\net5.0\PubTmp\Out\appsettings.Development.json
 C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Release\net5.0\PubTmp\Out\appsettings.json
+C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Release\net5.0\PubTmp\Out\libman.json
 C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Release\net5.0\PubTmp\Out\EnvApp.dll
 C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Release\net5.0\PubTmp\Out\EnvApp.runtimeconfig.json
 C:\Users\e096752\Documents\Cole's Git Repos\EnvApp\EnvApp\obj\Release\net5.0\PubTmp\Out\EnvApp.pdb
