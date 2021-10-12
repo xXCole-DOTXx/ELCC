@@ -19,8 +19,19 @@ namespace EnvApp.Controllers
         }
 
         // GET: NR_User
-        public async Task<IActionResult> Index(string searchString)
+        public async Task<IActionResult> Index(string searchString, string currentFilter, int? pageNumber)
         {
+            ViewData["CurrentFilter"] = searchString;
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
             ViewData["CurrentFilter"] = searchString;
 
             var users = from s in _context.NR_Users
@@ -32,7 +43,8 @@ namespace EnvApp.Controllers
                                        || s.AD_Number.Contains(searchString));
             }
 
-            return View(await users.AsNoTracking().ToListAsync());
+            int pageSize = 10;
+            return View(await PaginatedList<NR_User>.CreateAsync(users.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
         // GET: NR_User/Details/5
