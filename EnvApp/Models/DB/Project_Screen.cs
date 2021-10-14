@@ -32,7 +32,7 @@ namespace EnvApp.Models.DB
         public bool SHPO_Approval_A { get; set; }
         public bool ESA_Key { get; set; }
         public bool Crayfish { get; set; }
-        public string? Crayfish_Habitat_Survey { get; set; }
+        public bool Crayfish_Habitat_Assessment { get; set; }
         public bool NLEB_4D { get; set; }
         public bool USFWS { get; set; }
         public string USFWS_Type { get; set; }

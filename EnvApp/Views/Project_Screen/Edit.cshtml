@@ -6,135 +6,226 @@
 
 <h1>Edit</h1>
 
-<h4>Project_Screen</h4>
+<h4>Screening Form</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-12">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="ID" />
-            <div class="form-group">
-                <label asp-for="State_Project_Number" class="control-label"></label>
-                <input asp-for="State_Project_Number" class="form-control" />
-                <span asp-validation-for="State_Project_Number" class="text-danger"></span>
+            <input type="hidden" asp-for="Adduser" />
+            <input type="hidden" asp-for="Date_Added" />
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">State Project Number</label>
+                    <input asp-for="State_Project_Number" class="form-control" placeholder="S314-50-31.02" />
+                    <span asp-validation-for="State_Project_Number" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Federal Project Number</label>
+                    <input asp-for="Federal_Project_Number" class="form-control" placeholder="STP-0050(350)D" />
+                    <span asp-validation-for="Federal_Project_Number" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Federal_Project_Number" class="control-label"></label>
-                <input asp-for="Federal_Project_Number" class="form-control" />
-                <span asp-validation-for="Federal_Project_Number" class="text-danger"></span>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">Project Name</label>
+                    <input asp-for="Project_Name" class="form-control" placeholder="Capon Bridge" />
+                    <span asp-validation-for="Project_Name" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="County" class="control-label"></label>
+                    <select asp-for="County" name="County" class="form-control" asp-items="@ViewBag.counties"></select>
+                    <span asp-validation-for="County" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Project_Name" class="control-label"></label>
-                <input asp-for="Project_Name" class="form-control" />
-                <span asp-validation-for="Project_Name" class="text-danger"></span>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label class="control-label">Memo Date</label>
+                    <input asp-for="Memo_Date" class="form-control" type="date" />
+                    <span asp-validation-for="Memo_Date" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-3">
+                    <label asp-for="From" class="control-label"></label>
+                    <input asp-for="From" class="form-control" placeholder="DDR- Chad Lowther" />
+                    <span asp-validation-for="From" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-3">
+                    <label asp-for="Authorization" class="control-label"></label>
+                    <input asp-for="Authorization" class="form-control" placeholder="0060  TE2313G 111-N" />
+                    <span asp-validation-for="Authorization" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-3">
+                    <label class="control-label">DSN PM</label>
+                    <select asp-for="DSN_PM" name="DSN_PM" class="form-control" asp-items="@(new SelectList(ViewBag.users))"></select>
+                    <span asp-validation-for="DSN_PM" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="County" class="control-label"></label>
-                <input asp-for="County" class="form-control" />
-                <span asp-validation-for="County" class="text-danger"></span>
+
+            <hr />
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">USFWS Coordination Needed</label>
+                    <select asp-for="USFWS" name="USFWS" class="form-control" asp-items="@ViewBag.options"></select>
+                    <span asp-validation-for="USFWS" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-8" id="usfwsType">
+                    <label class="control-label">USFWS Coordination Type</label>
+                    <textarea asp-for="USFWS_Type" class="form-control"></textarea>
+                    <span asp-validation-for="USFWS_Type" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Memo_Date" class="control-label"></label>
-                <input asp-for="Memo_Date" class="form-control" />
-                <span asp-validation-for="Memo_Date" class="text-danger"></span>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#usfwsType').hide();
+                    $('#USFWS').change(function () {
+                        var selectedValue = $(this).val();
+                        console.log(selectedValue);
+                        if (selectedValue == "True") {
+                            $('#usfwsType').show();
+                        }
+                        else {
+                            $('#usfwsType').hide();
+                        }
+                    });
+                });
+            </script>
+
+            <hr />
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">History Notes</label>
+                    <input asp-for="History" class="form-control" />
+                    <span asp-validation-for="History" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">History PM</label>
+                    <select asp-for="History_PM" name="History_PM" class="form-control" asp-items="@(new SelectList(ViewBag.histUsers))"></select>
+                    <span asp-validation-for="History_PM" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="From" class="control-label"></label>
-                <input asp-for="From" class="form-control" />
-                <span asp-validation-for="From" class="text-danger"></span>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">Review Exempt H</label>
+                    <select asp-for="Review_Exempt_H" name="Review_Exempt_H" class="form-control" asp-items="@ViewBag.options"></select>
+                    <span asp-validation-for="Review_Exempt_H" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">SHPO Approval H</label>
+                    <select asp-for="SHPO_Approval_H" name="SHPO_Approval_H" class="form-control" asp-items="@ViewBag.options"></select>
+                    <span asp-validation-for="SHPO_Approval_H" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Authorization" class="control-label"></label>
-                <input asp-for="Authorization" class="form-control" />
-                <span asp-validation-for="Authorization" class="text-danger"></span>
+
+            <hr />
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">Archaeology Notes</label>
+                    <input asp-for="Archaeology" class="form-control" />
+                    <span asp-validation-for="Archaeology" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Archaeology PM</label>
+                    <select asp-for="Archaeology_PM" name="Archaeology_PM" class="form-control" asp-items="@(new SelectList(ViewBag.archUsers))"></select>
+                    <span asp-validation-for="Archaeology_PM" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="DSN_PM" class="control-label"></label>
-                <input asp-for="DSN_PM" class="form-control" />
-                <span asp-validation-for="DSN_PM" class="text-danger"></span>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">Review Exempt A</label>
+                    <select asp-for="Review_Exempt_A" name="Review_Exempt_A" class="form-control" asp-items="@ViewBag.options"></select>
+                    <span asp-validation-for="Review_Exempt_A" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">SHPO Approval A</label>
+                    <select asp-for="SHPO_Approval_A" name="SHPO_Approval_A" class="form-control" asp-items="@ViewBag.options"></select>
+                    <span asp-validation-for="SHPO_Approval_A" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="History" class="control-label"></label>
-                <input asp-for="History" class="form-control" />
-                <span asp-validation-for="History" class="text-danger"></span>
+
+            <hr />
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">Crayfish Survey Needed</label>
+                    <select asp-for="Crayfish" name="Crayfish" class="form-control" asp-items="@ViewBag.options"></select>
+                    <span asp-validation-for="Crayfish" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Crayfish Habitat Assessment</label>
+                    <select asp-for="Crayfish_Habitat_Assessment" name="Crayfish" class="form-control" asp-items="@ViewBag.options"></select>
+                    <span asp-validation-for="Crayfish_Habitat_Assessment" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Section 7 ESA Determination Key</label>
+                    <select asp-for="ESA_Key" name="ESA_Key" class="form-control" asp-items="@ViewBag.options"></select>
+                    <span asp-validation-for="ESA_Key" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="History_PM" class="control-label"></label>
-                <input asp-for="History_PM" class="form-control" />
-                <span asp-validation-for="History_PM" class="text-danger"></span>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">Mussel Survey Needed</label>
+                    <select asp-for="Mussel_Stream" name="Mussel_Stream" class="form-control" asp-items="@ViewBag.options"></select>
+                    <span asp-validation-for="Mussel_Stream" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Mussel Habitat</label>
+                    <select asp-for="Mussel_Habitat" name="Mussel_Habitat" class="form-control" asp-items="@ViewBag.options"></select>
+                    <span asp-validation-for="Mussel_Habitat" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">NLEB 4D</label>
+                    <select asp-for="NLEB_4D" name="NLEB_4D" class="form-control" asp-items="@ViewBag.options"></select>
+                    <span asp-validation-for="NLEB_4D" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Review_Exempt_H" class="control-label"></label>
-                <input asp-for="Review_Exempt_H" class="form-control" />
-                <span asp-validation-for="Review_Exempt_H" class="text-danger"></span>
+
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label class="control-label">Bat Habitat Assessment Needed</label>
+                    <select asp-for="Bat_Habitat" name="Bat_Habitat" class="form-control" asp-items="@ViewBag.options"></select>
+                    <span asp-validation-for="Bat_Habitat" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-3">
+                    <label class="control-label">ToPo Quad Name</label>
+                    <input asp-for="ToPo_Quad_Name" class="form-control" placeholder="Capon Bridge" />
+                    <span asp-validation-for="ToPo_Quad_Name" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-3">
+                    <label class="control-label">Bars ID #</label>
+                    <input asp-for="Bars" class="form-control" placeholder="14A054" />
+                    <span asp-validation-for="Bars" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-3">
+                    <label class="control-label">Within 2 miles of an Airport</label>
+                    <input asp-for="Within_Airport" class="form-control" placeholder="Yeager Airport" />
+                    <span asp-validation-for="Within_Airport" class="text-danger"></span>
+                    <p>If not then write 'No'.</p>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="SHPO_Approval_H" class="control-label"></label>
-                <input asp-for="SHPO_Approval_H" class="form-control" />
-                <span asp-validation-for="SHPO_Approval_H" class="text-danger"></span>
+
+
+            <hr />
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">Coordinates</label>
+                    <input asp-for="Coordinates" class="form-control" placeholder="38.3498° N, 81.6326° W" />
+                    <span asp-validation-for="Coordinates" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-8">
+                    <label class="control-label">Natural Resources Notes</label>
+                    <textarea asp-for="Natural_Resources_Notes" class="form-control"></textarea>
+                    <span asp-validation-for="Natural_Resources_Notes" class="text-danger"></span>
+                </div>
             </div>
+
+
             <div class="form-group">
-                <label asp-for="Archaeology" class="control-label"></label>
-                <input asp-for="Archaeology" class="form-control" />
-                <span asp-validation-for="Archaeology" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Archaeology_PM" class="control-label"></label>
-                <input asp-for="Archaeology_PM" class="form-control" />
-                <span asp-validation-for="Archaeology_PM" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Review_Exempt_A" class="control-label"></label>
-                <input asp-for="Review_Exempt_A" class="form-control" />
-                <span asp-validation-for="Review_Exempt_A" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SHPO_Approval_A" class="control-label"></label>
-                <input asp-for="SHPO_Approval_A" class="form-control" />
-                <span asp-validation-for="SHPO_Approval_A" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ESA_Key" class="control-label"></label>
-                <input asp-for="ESA_Key" class="form-control" />
-                <span asp-validation-for="ESA_Key" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Crayfish" class="control-label"></label>
-                <input asp-for="Crayfish" class="form-control" />
-                <span asp-validation-for="Crayfish" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="NLEB_4D" class="control-label"></label>
-                <input asp-for="NLEB_4D" class="form-control" />
-                <span asp-validation-for="NLEB_4D" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="USFWS" class="control-label"></label>
-                <input asp-for="USFWS" class="form-control" />
-                <span asp-validation-for="USFWS" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Mussel_Habitat" class="control-label"></label>
-                <input asp-for="Mussel_Habitat" class="form-control" />
-                <span asp-validation-for="Mussel_Habitat" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Bat_Habitat" class="control-label"></label>
-                <input asp-for="Bat_Habitat" class="form-control" />
-                <span asp-validation-for="Bat_Habitat" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Adduser" class="control-label"></label>
-                <input asp-for="Adduser" class="form-control" />
-                <span asp-validation-for="Adduser" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Date_Added" class="control-label"></label>
-                <input asp-for="Date_Added" class="form-control" />
-                <span asp-validation-for="Date_Added" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>
