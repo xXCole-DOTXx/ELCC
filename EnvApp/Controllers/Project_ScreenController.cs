@@ -91,10 +91,6 @@ namespace EnvApp.Controllers
         {
             List<string> users = (from c in _context.NR_Users select c.Name).ToList();
             users.Insert(0, "Select");
-            for(var i = 0; i<users.Count; i++)
-            {
-                System.Diagnostics.Debug.WriteLine(users[i]);
-            }
             ViewBag.users = users;
 
             List<NR_User> histUsers = new List<NR_User>();
@@ -197,19 +193,23 @@ namespace EnvApp.Controllers
                                  where s.User_Type == "Unit Leader"
                                  select s.Email_Address).ToList();
 
-                string[] leads = unitLeads.ToArray();
-
-                var batLady = (from z in _context.NR_Users
-                               where z.Name == "Cole Perry"
-                               select z.Email_Address).ToString();
-                
+                string[] leads = unitLeads.ToArray();           
                 for (int i = 0; i < leads.Length; i++)
                 {
                     //SendEmail(leads[i]);
                     System.Diagnostics.Debug.WriteLine(leads[i].ToString());
                 }
-                System.Diagnostics.Debug.WriteLine(batLady.ToString());
-                //SendEmail(batLady);
+
+                if (project_Screen.Bat_Habitat)
+                {
+                    var batLady = (from z in _context.NR_Users
+                                   where z.Name == "Cole Perry"
+                                   select z.Email_Address);
+                    foreach (var email in batLady)
+                        System.Diagnostics.Debug.WriteLine(email);
+                    //SendEmail(email);
+                }
+
                 _context.Add(project_Screen);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -325,7 +325,6 @@ namespace EnvApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(long id, [Bind("ID,State_Project_Number,Federal_Project_Number,Project_Name,County,Memo_Date,From,Authorization,DSN_PM,History,History_PM,Review_Exempt_H,SHPO_Approval_H,Archaeology,Archaeology_PM,Review_Exempt_A,SHPO_Approval_A,ESA_Key,Crayfish,Crayfish_Habitat_Assessment,NLEB_4D,USFWS,USFWS_Type,Mussel_Habitat,Mussel_Stream,Mussel_Stream_Survey,Within_Airport,ToPo_Quad_Name,Bat_Habitat,Bars,Coordinates,Natural_Resources_Notes,Adduser,Date_Added")] Project_Screen project_Screen)
         {
-            System.Diagnostics.Debug.WriteLine("ID: " + id + "project_Screen.ID: " + project_Screen.ID);
             if (id != project_Screen.ID)
             {
                 return NotFound();
