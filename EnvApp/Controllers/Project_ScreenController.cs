@@ -64,7 +64,7 @@ namespace EnvApp.Controllers
                     forms = forms.OrderBy(s => s.Date_Added);
                     break;
             }
-            int pageSize = 5;
+            int pageSize = 10;
             return View(await PaginatedList<Project_Screen>.CreateAsync(forms.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
@@ -346,6 +346,19 @@ namespace EnvApp.Controllers
                     else
                     {
                         throw;
+                    }
+                }
+                //If all 3 managers are not null then send an email to the DSN_PM
+                if(project_Screen.Archaeology_PM != null){
+                    if (project_Screen.History_PM != null)
+                    {
+                        if (project_Screen.DSN_PM != null)
+                        {
+                            var projManager = (from s in _context.NR_Users where s.Name == project_Screen.DSN_PM select s.Email_Address);
+                            foreach (var email in projManager)
+                                SendEmail(email);
+                                //System.Diagnostics.Debug.WriteLine(email);
+                        }
                     }
                 }
                 return RedirectToAction(nameof(Index));
