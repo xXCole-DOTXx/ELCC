@@ -210,6 +210,21 @@ namespace EnvApp.Controllers
                     //SendEmail(email);
                 }
 
+                //Check if any crayfish or mussel info is true
+                bool[] info = { project_Screen.Crayfish, project_Screen.Crayfish_Habitat_Assessment, project_Screen.Mussel_Habitat, project_Screen.Mussel_Stream };
+                for(int i=0; i<info.Length; i++)
+                {
+                    if(info[i] == true)
+                    {
+                        System.Diagnostics.Debug.WriteLine(info[i]);
+                    }
+                }
+
+                if( project_Screen.Crayfish == true || project_Screen.Crayfish_Habitat_Assessment == true || project_Screen.Mussel_Habitat == true || project_Screen.Mussel_Stream == true)
+                {
+                    System.Diagnostics.Debug.WriteLine("Ya");
+                }
+
                 _context.Add(project_Screen);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
