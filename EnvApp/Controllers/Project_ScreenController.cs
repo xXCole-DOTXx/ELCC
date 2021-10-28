@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using EnvApp.Models.DB;
 using System.Net.Mail;
 using System.Net;
+using System.Text;
 
 namespace EnvApp.Controllers
 {
@@ -182,7 +183,7 @@ namespace EnvApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,State_Project_Number,Federal_Project_Number,Project_Name,County,Memo_Date,From,Authorization,DSN_PM,History,History_PM,Review_Exempt_H,SHPO_Approval_H,Archaeology,Archaeology_PM,Review_Exempt_A,SHPO_Approval_A,ESA_Key,Crayfish,Crayfish_Habitat_Assessment,NLEB_4D,USFWS,USFWS_Type,Mussel_Habitat,Mussel_Stream,Mussel_Stream_Survey,Within_Airport,ToPo_Quad_Name,Bat_Habitat,Bars,Coordinates,Natural_Resources_Notes,Adduser,Date_Added")] Project_Screen project_Screen)
+        public async Task<IActionResult> Create([Bind("ID,State_Project_Number,Federal_Project_Number,Project_Name,County,Memo_Date,From,Authorization,DSN_PM,History,History_PM,Review_Exempt_H,SHPO_Approval_H,Archaeology,Archaeology_PM,Review_Exempt_A,SHPO_Approval_A,ESA_Key,Crayfish,Crayfish_Habitat_Assessment,NLEB_4D,USFWS,USFWS_Type,Mussel_Habitat,Mussel_Stream,Within_Airport,ToPo_Quad_Name,Bat_Habitat,Bars,Coordinates,Natural_Resources_Notes,Adduser,Date_Added,Crayfish_Notes,Mussel_Notes")] Project_Screen project_Screen)
         {
             if (ModelState.IsValid)
             {
@@ -207,22 +208,31 @@ namespace EnvApp.Controllers
                                    select z.Email_Address);
                     foreach (var email in batLady)
                         System.Diagnostics.Debug.WriteLine(email);
-                    //SendEmail(email);
-                }
-
-                //Check if any crayfish or mussel info is true
-                bool[] info = { project_Screen.Crayfish, project_Screen.Crayfish_Habitat_Assessment, project_Screen.Mussel_Habitat, project_Screen.Mussel_Stream };
-                for(int i=0; i<info.Length; i++)
-                {
-                    if(info[i] == true)
-                    {
-                        System.Diagnostics.Debug.WriteLine(info[i]);
-                    }
+                        //SendEmail(email);
                 }
 
                 if( project_Screen.Crayfish == true || project_Screen.Crayfish_Habitat_Assessment == true || project_Screen.Mussel_Habitat == true || project_Screen.Mussel_Stream == true)
                 {
-                    System.Diagnostics.Debug.WriteLine("Ya");
+                    StringBuilder message = new StringBuilder("New project, " + project_Screen.Project_Name + ", requires ");
+                    if (project_Screen.Crayfish)
+                    {
+                        message.Append("a crayfish survey, ");
+                    }
+                    if (project_Screen.Crayfish_Habitat_Assessment)
+                    {
+                        message.Append("a crayfish habitat assessment, ");
+                    }
+                    if (project_Screen.Mussel_Habitat)
+                    {
+                        message.Append("a mussel habitat assessment, ");
+                    }
+                    if (project_Screen.Mussel_Stream)
+                    {
+                        message.Append("a mussel stream survey, ");
+                    }
+                    message.Append("and requires your attention.");
+                    System.Diagnostics.Debug.WriteLine(message);
+                    //SendEmail("e096752@wv.gov");
                 }
 
                 _context.Add(project_Screen);
@@ -338,7 +348,7 @@ namespace EnvApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("ID,State_Project_Number,Federal_Project_Number,Project_Name,County,Memo_Date,From,Authorization,DSN_PM,History,History_PM,Review_Exempt_H,SHPO_Approval_H,Archaeology,Archaeology_PM,Review_Exempt_A,SHPO_Approval_A,ESA_Key,Crayfish,Crayfish_Habitat_Assessment,NLEB_4D,USFWS,USFWS_Type,Mussel_Habitat,Mussel_Stream,Mussel_Stream_Survey,Within_Airport,ToPo_Quad_Name,Bat_Habitat,Bars,Coordinates,Natural_Resources_Notes,Adduser,Date_Added")] Project_Screen project_Screen)
+        public async Task<IActionResult> Edit(long id, [Bind("ID,State_Project_Number,Federal_Project_Number,Project_Name,County,Memo_Date,From,Authorization,DSN_PM,History,History_PM,Review_Exempt_H,SHPO_Approval_H,Archaeology,Archaeology_PM,Review_Exempt_A,SHPO_Approval_A,ESA_Key,Crayfish,Crayfish_Habitat_Assessment,NLEB_4D,USFWS,USFWS_Type,Mussel_Habitat,Mussel_Stream,Within_Airport,ToPo_Quad_Name,Bat_Habitat,Bars,Coordinates,Natural_Resources_Notes,Adduser,Date_Added")] Project_Screen project_Screen)
         {
             if (id != project_Screen.ID)
             {

@@ -38,7 +38,6 @@ namespace EnvApp.Models.DB
         public string USFWS_Type { get; set; }
         public bool Mussel_Habitat { get; set; }
         public bool Mussel_Stream { get; set; }
-        public string? Mussel_Stream_Survey { get; set; }
         public string Within_Airport { get; set; }
         public string? ToPo_Quad_Name { get; set; }
         public bool Bat_Habitat { get; set; }
@@ -47,6 +46,8 @@ namespace EnvApp.Models.DB
         public string? Natural_Resources_Notes { get; set; }
         public string Adduser { get; set; }
         public DateTime? Date_Added { get; set; }
+        public string Crayfish_Notes { get; set; }
+        public string Mussel_Notes { get; set; }
 
         public virtual ICollection<TypeOne> TypeOnes { get; set; }
     }

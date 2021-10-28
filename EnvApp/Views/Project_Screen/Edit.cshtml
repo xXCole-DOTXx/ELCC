@@ -94,21 +94,6 @@
                     <span asp-validation-for="USFWS_Type" class="text-danger"></span>
                 </div>
             </div>
-            <script type="text/javascript">
-                $(document).ready(function () {
-                    $('#usfwsType').hide();
-                    $('#USFWS').change(function () {
-                        var selectedValue = $(this).val();
-                        console.log(selectedValue);
-                        if (selectedValue == "True") {
-                            $('#usfwsType').show();
-                        }
-                        else {
-                            $('#usfwsType').hide();
-                        }
-                    });
-                });
-            </script>
 
             <hr />
 
@@ -177,12 +162,13 @@
                     <select asp-for="Crayfish_Habitat_Assessment" name="Crayfish" class="form-control" asp-items="@ViewBag.options"></select>
                     <span asp-validation-for="Crayfish_Habitat_Assessment" class="text-danger"></span>
                 </div>
-                <div class="form-group col-md-4">
-                    <label class="control-label">Section 7 ESA Determination Key</label>
-                    <select asp-for="ESA_Key" name="ESA_Key" class="form-control" asp-items="@ViewBag.options"></select>
-                    <span asp-validation-for="ESA_Key" class="text-danger"></span>
+                <div class="form-group col-md-4" id="CrayfishNotes">
+                    <label class="control-label">Notes</label>
+                    <input asp-for="Crayfish_Notes" class="form-control"/>
+                    <span asp-validation-for="Crayfish_Notes" class="text-danger"></span>
                 </div>
             </div>
+
             <div class="row">
                 <div class="form-group col-md-4">
                     <label class="control-label">Mussel Survey Needed</label>
@@ -194,24 +180,37 @@
                     <select asp-for="Mussel_Habitat" name="Mussel_Habitat" class="form-control" asp-items="@ViewBag.options"></select>
                     <span asp-validation-for="Mussel_Habitat" class="text-danger"></span>
                 </div>
-                <div class="form-group col-md-4">
-                    <label class="control-label">NLEB 4D</label>
-                    <select asp-for="NLEB_4D" name="NLEB_4D" class="form-control" asp-items="@ViewBag.options"></select>
-                    <span asp-validation-for="NLEB_4D" class="text-danger"></span>
+                <div class="form-group col-md-4" id="MusselNotes">
+                    <label class="control-label">Notes</label>
+                    <input asp-for="Mussel_Notes" class="form-control"/>
+                    <span asp-validation-for="Mussel_Notes" class="text-danger"></span>
                 </div>
             </div>
 
             <div class="row">
-                <div class="form-group col-md-4">
+                <div class="form-group col-md-3">
                     <label class="control-label">Bat Habitat Assessment Needed</label>
                     <select asp-for="Bat_Habitat" name="Bat_Habitat" class="form-control" asp-items="@ViewBag.options"></select>
                     <span asp-validation-for="Bat_Habitat" class="text-danger"></span>
                 </div>
-                <div class="form-group col-md-4">
+                
+                <div class="form-group col-md-3">
                     <label class="control-label">Within 2 miles of an Airport</label>
                     <input asp-for="Within_Airport" class="form-control" placeholder="Yeager Airport" />
                     <span asp-validation-for="Within_Airport" class="text-danger"></span>
                     <p>If not then write 'No'.</p>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label class="control-label">NLEB 4D</label>
+                    <select asp-for="NLEB_4D" name="NLEB_4D" class="form-control" asp-items="@ViewBag.options"></select>
+                    <span asp-validation-for="NLEB_4D" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label class="control-label">Section 7 ESA Determination Key</label>
+                    <select asp-for="ESA_Key" name="ESA_Key" class="form-control" asp-items="@ViewBag.options"></select>
+                    <span asp-validation-for="ESA_Key" class="text-danger"></span>
                 </div>
             </div>
 
