@@ -348,7 +348,7 @@ namespace EnvApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("ID,State_Project_Number,Federal_Project_Number,Project_Name,County,Memo_Date,From,Authorization,DSN_PM,History,History_PM,Review_Exempt_H,SHPO_Approval_H,Archaeology,Archaeology_PM,Review_Exempt_A,SHPO_Approval_A,ESA_Key,Crayfish,Crayfish_Habitat_Assessment,NLEB_4D,USFWS,USFWS_Type,Mussel_Habitat,Mussel_Stream,Within_Airport,ToPo_Quad_Name,Bat_Habitat,Bars,Coordinates,Natural_Resources_Notes,Adduser,Date_Added")] Project_Screen project_Screen)
+        public async Task<IActionResult> Edit(long id, [Bind("ID,State_Project_Number,Federal_Project_Number,Project_Name,County,Memo_Date,From,Authorization,DSN_PM,History,History_PM,Review_Exempt_H,SHPO_Approval_H,Archaeology,Archaeology_PM,Review_Exempt_A,SHPO_Approval_A,ESA_Key,Crayfish,Crayfish_Habitat_Assessment,NLEB_4D,USFWS,USFWS_Type,Mussel_Habitat,Mussel_Stream,Within_Airport,ToPo_Quad_Name,Bat_Habitat,Bars,Coordinates,Natural_Resources_Notes,Adduser,Date_Added,Crayfish_Notes,Mussel_Notes")] Project_Screen project_Screen)
         {
             if (id != project_Screen.ID)
             {
