@@ -7,36 +7,39 @@ namespace EnvApp.Models.DB
 {
     public partial class TypeOne
     {
-        public long Id { get; set; }
-        public long StateProjectId { get; set; }
-        public string FederalProjectNumber { get; set; }
+        public long ID { get; set; }
+        public long State_ProjectID { get; set; }
+        public string Federal_Project_Number { get; set; }
         public string Name { get; set; }
-        public string RouteNumber { get; set; }
+        public string Route_Number { get; set; }
         public string County { get; set; }
-        public string WorkType { get; set; }
-        public decimal? Latitude { get; set; }
-        public decimal? Longitude { get; set; }
-        public string ProjectDescription { get; set; }
-        public bool? FederalAid { get; set; }
-        public string CeCategory { get; set; }
-        public bool? EnvGisScreen { get; set; }
-        public bool? PceProjectVerification { get; set; }
-        public bool? ThroughLanes { get; set; }
-        public bool? CloseRoad { get; set; }
-        public bool? RowAcquisition { get; set; }
-        public bool? AccessControl { get; set; }
-        public bool? _50YearStructure { get; set; }
-        public bool? AgencyCoordination { get; set; }
-        public bool? GisScreen { get; set; }
-        public bool? Section404Permit { get; set; }
-        public bool? GroundDisturbance { get; set; }
+        public string Work_Type { get; set; }
+        public string Coordinates { get; set; }
+        public string Project_Description { get; set; }
+        public bool? Federal_Aid { get; set; }
+        public string CE_Category { get; set; }
+        public string Amms { get; set; }
+        public bool Activities_Agreement { get; set; }
+        public string Arch_RE { get; set; }
+        public string Hist_RE { get; set; }
+        public DateTime? Arch_RE_Date { get; set; }
+        public DateTime? Hist_RE_Date { get; set; }
+        public bool? Through_Lanes { get; set; }
+        public bool? Close_Road { get; set; }
+        public bool? ROW_Acquisition { get; set; }
+        public bool? Access_Control { get; set; }
+        public bool? Fifty_Year_Structure { get; set; }
+        public bool? Agency_Coordination { get; set; }
+        public bool? IPAC_Screening_Zone { get; set; }
+        public bool? Section_404_Permit { get; set; }
+        public bool? Ground_Disturbance { get; set; }
         public bool? Waterway { get; set; }
-        public bool? SpecialUsePermit { get; set; }
+        public bool? Special_Use_Permit { get; set; }
         public bool? Floodplain { get; set; }
-        public string PreparedBy { get; set; }
-        public string ApprovedBy { get; set; }
+        public string Prepared_By { get; set; }
+        public string Approved_By { get; set; }
         public string Adduser { get; set; }
-        public DateTime? DateAdded { get; set; }
+        public DateTime? Date_Added { get; set; }
 
         public virtual Project_Screen StateProject { get; set; }
     }
