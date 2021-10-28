@@ -1,0 +1,213 @@
+﻿@model EnvApp.Models.DB.TypeOne
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TypeOne</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.State_ProjectID)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.State_ProjectID)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Federal_Project_Number)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Federal_Project_Number)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Route_Number)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Route_Number)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.County)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.County)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Work_Type)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Work_Type)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Coordinates)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Coordinates)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Project_Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Project_Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Federal_Aid)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Federal_Aid)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CE_Category)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CE_Category)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Amms)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Amms)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Activities_Agreement)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Activities_Agreement)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Arch_RE)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Arch_RE)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Hist_RE)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Hist_RE)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Arch_RE_Date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Arch_RE_Date)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Hist_RE_Date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Hist_RE_Date)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Through_Lanes)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Through_Lanes)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Close_Road)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Close_Road)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ROW_Acquisition)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ROW_Acquisition)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Access_Control)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Access_Control)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Fifty_Year_Structure)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fifty_Year_Structure)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Agency_Coordination)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Agency_Coordination)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IPAC_Screening_Zone)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IPAC_Screening_Zone)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Section_404_Permit)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Section_404_Permit)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Ground_Disturbance)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Ground_Disturbance)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Waterway)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Waterway)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Special_Use_Permit)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Special_Use_Permit)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Floodplain)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Floodplain)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Prepared_By)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Prepared_By)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Approved_By)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Approved_By)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Adduser)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Adduser)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Date_Added)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Date_Added)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

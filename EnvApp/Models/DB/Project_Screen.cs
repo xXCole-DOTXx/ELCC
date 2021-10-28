@@ -8,10 +8,6 @@ namespace EnvApp.Models.DB
 {
     public partial class Project_Screen
     {
-        public Project_Screen()
-        {
-            TypeOnes = new HashSet<TypeOne>();
-        }
         [Key]
         public long ID { get; set; }
         public string State_Project_Number { get; set; }
@@ -49,6 +45,5 @@ namespace EnvApp.Models.DB
         public string Crayfish_Notes { get; set; }
         public string Mussel_Notes { get; set; }
 
-        public virtual ICollection<TypeOne> TypeOnes { get; set; }
     }
 }

@@ -312,3 +312,8 @@ C:\Users\e096752\Documents\Repos\ELCC\EnvApp\obj\Debug\net5.0\EnvApp.dll
 C:\Users\e096752\Documents\Repos\ELCC\EnvApp\obj\Debug\net5.0\ref\EnvApp.dll
 C:\Users\e096752\Documents\Repos\ELCC\EnvApp\obj\Debug\net5.0\EnvApp.pdb
 C:\Users\e096752\Documents\Repos\ELCC\EnvApp\obj\Debug\net5.0\EnvApp.genruntimeconfig.cache
+C:\Users\e096752\Documents\Repos\ELCC\EnvApp\obj\Debug\net5.0\Razor\Views\TypeOnes\Create.cshtml.g.cs
+C:\Users\e096752\Documents\Repos\ELCC\EnvApp\obj\Debug\net5.0\Razor\Views\TypeOnes\Delete.cshtml.g.cs
+C:\Users\e096752\Documents\Repos\ELCC\EnvApp\obj\Debug\net5.0\Razor\Views\TypeOnes\Details.cshtml.g.cs
+C:\Users\e096752\Documents\Repos\ELCC\EnvApp\obj\Debug\net5.0\Razor\Views\TypeOnes\Edit.cshtml.g.cs
+C:\Users\e096752\Documents\Repos\ELCC\EnvApp\obj\Debug\net5.0\Razor\Views\TypeOnes\Index.cshtml.g.cs

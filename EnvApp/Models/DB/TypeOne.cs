@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 #nullable disable
 
@@ -7,6 +8,7 @@ namespace EnvApp.Models.DB
 {
     public partial class TypeOne
     {
+        [Key]
         public long ID { get; set; }
         public long State_ProjectID { get; set; }
         public string Federal_Project_Number { get; set; }
@@ -40,7 +42,5 @@ namespace EnvApp.Models.DB
         public string Approved_By { get; set; }
         public string Adduser { get; set; }
         public DateTime? Date_Added { get; set; }
-
-        public virtual Project_Screen StateProject { get; set; }
     }
 }

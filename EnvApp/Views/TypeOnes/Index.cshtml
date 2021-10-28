@@ -1,0 +1,221 @@
+﻿@model IEnumerable<EnvApp.Models.DB.TypeOne>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.State_ProjectID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Federal_Project_Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Route_Number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.County)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Work_Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Coordinates)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Project_Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Federal_Aid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CE_Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Activities_Agreement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Arch_RE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hist_RE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Arch_RE_Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hist_RE_Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Through_Lanes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Close_Road)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ROW_Acquisition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Access_Control)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fifty_Year_Structure)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Agency_Coordination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IPAC_Screening_Zone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Section_404_Permit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ground_Disturbance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Waterway)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Special_Use_Permit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Floodplain)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prepared_By)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Approved_By)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Adduser)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date_Added)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.State_ProjectID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Federal_Project_Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Route_Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.County)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Work_Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Coordinates)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Project_Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Federal_Aid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CE_Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Activities_Agreement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arch_RE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hist_RE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arch_RE_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hist_RE_Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Through_Lanes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Close_Road)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ROW_Acquisition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Access_Control)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fifty_Year_Structure)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Agency_Coordination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IPAC_Screening_Zone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Section_404_Permit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ground_Disturbance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Waterway)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Special_Use_Permit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Floodplain)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prepared_By)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Approved_By)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adduser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_Added)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
