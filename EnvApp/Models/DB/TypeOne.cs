@@ -1,16 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 #nullable disable
 
 namespace EnvApp.Models.DB
 {
+    [Table("Type_One")]
     public partial class TypeOne
     {
         [Key]
         public long ID { get; set; }
-        public long State_ProjectID { get; set; }
+        public string State_Project_Number { get; set; }
         public string Federal_Project_Number { get; set; }
         public string Name { get; set; }
         public string Route_Number { get; set; }
@@ -19,6 +21,7 @@ namespace EnvApp.Models.DB
         public string Coordinates { get; set; }
         public string Project_Description { get; set; }
         public bool? Federal_Aid { get; set; }
+        public bool? Minimal_Project_Verification { get; set; }
         public string CE_Category { get; set; }
         public string Amms { get; set; }
         public bool Activities_Agreement { get; set; }

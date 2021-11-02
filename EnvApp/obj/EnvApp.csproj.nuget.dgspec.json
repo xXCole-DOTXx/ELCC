@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\e096752\\Documents\\Repos\\ELCC\\EnvApp\\EnvApp.csproj": {}
+    "C:\\Users\\e096752\\Documents\\Cole's Git Repos\\ELCC\\EnvApp\\EnvApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\e096752\\Documents\\Repos\\ELCC\\EnvApp\\EnvApp.csproj": {
+    "C:\\Users\\e096752\\Documents\\Cole's Git Repos\\ELCC\\EnvApp\\EnvApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\e096752\\Documents\\Repos\\ELCC\\EnvApp\\EnvApp.csproj",
+        "projectUniqueName": "C:\\Users\\e096752\\Documents\\Cole's Git Repos\\ELCC\\EnvApp\\EnvApp.csproj",
         "projectName": "EnvApp",
-        "projectPath": "C:\\Users\\e096752\\Documents\\Repos\\ELCC\\EnvApp\\EnvApp.csproj",
+        "projectPath": "C:\\Users\\e096752\\Documents\\Cole's Git Repos\\ELCC\\EnvApp\\EnvApp.csproj",
         "packagesPath": "C:\\Users\\e096752\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\e096752\\Documents\\Repos\\ELCC\\EnvApp\\obj\\",
+        "outputPath": "C:\\Users\\e096752\\Documents\\Cole's Git Repos\\ELCC\\EnvApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\e096752\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -83,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-rc.2.21505.57\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.303\\RuntimeIdentifierGraph.json"
         }
       }
     }

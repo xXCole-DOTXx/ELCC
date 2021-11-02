@@ -17,8 +17,8 @@
             <div class="row">
                 <div class="form-group col-md-4">
                     <label class="control-label">State Project Number</label>
-                    <input asp-for="State_ProjectID" class="form-control" />
-                    <span asp-validation-for="State_ProjectID" class="text-danger"></span>
+                    <input asp-for="State_Project_Number" class="form-control" />
+                    <span asp-validation-for="State_Project_Number" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">Federal Project Number</label>
@@ -26,7 +26,7 @@
                     <span asp-validation-for="Federal_Project_Number" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-4">
-                    <label asp-for="Name" class="control-label"></label>
+                    <label class="control-label">Project Name</label>
                     <input asp-for="Name" class="form-control" />
                     <span asp-validation-for="Name" class="text-danger"></span>
                 </div>  
@@ -135,7 +135,60 @@
 
             <div>
                 <b>Section 4: PCE Minimal Project Verification and Documentation</b>
+
+                <p>Does the project fall under one of the following project types?</p>
+                <p>
+                    • Roadway Resurfacing, Striping, Sealing, Raised Pavement Markers, High Friction Surface Treatment, Cold Mix Asphalt Paving
+                    Lighting
+                </p>
+                <p>
+                    • Bridge Clean & Paint
+                </p>
+                <p>
+                    • Bridge Overlay / LMC
+                </p>
+                <p>
+                    • Sign Installation / Renovation
+                </p>
+                <p>
+                    • Traffic Signal Installation / Renovation / Modification
+                </p>
+                <p>
+                    • Emergency Project (such as slide repair, debris removal, etc.) that does not involve work below Ordinary High Water of any
+                    stream, Lake or water body and Not Within a National wildlife refuge, National Park, National Forest, National River or any
+                    other federally managed area.
+                </p>
+                <p>
+                    • Railroad Betterments, Crossing Device Upgrades, Crossing Surface Replacements, Track Circuit Additions
+                </p>
+                <p>
+                    • Warning Flashers
+                </p>
+                <p>
+                    • Dynamic Message Signs
+                </p>
+                <p>
+                    • Project Within Existing Right-of-Way With No Additional Land Disturbance Required Beyond the Currently Disturbed Areas
+                    and Not Within a National wildlife refuge, National Park, National Forest, National River or any other federally operated area
+                    requiring Work That Exceeds Regular Maintenance
+                </p>
+                <p>
+                    • Utility Installations
+                </p>
+                <p>
+                    If the answer is “Yes” then the project qualifies as a Type 1 PCE and the checklist is complete and attach all supporting
+                    information to the checklist.
+                </p>
+                <p>
+                    If the answer is “No” continue to section 5.
+                </p>
+                <div class="form-group col-md-2">
+                    <select asp-for="Minimal_Project_Verification" name="Minimal_Project_Verification" class="form-control" asp-items="@ViewBag.options"></select>
+                    <span asp-validation-for="Minimal_Project_Verification" class="text-danger"></span>
+                </div>
             </div>
+
+
 
             <hr />
 
