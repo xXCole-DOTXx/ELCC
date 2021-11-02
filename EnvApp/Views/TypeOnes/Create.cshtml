@@ -29,7 +29,7 @@
                     <label class="control-label">Project Name</label>
                     <input asp-for="Name" class="form-control" />
                     <span asp-validation-for="Name" class="text-danger"></span>
-                </div>  
+                </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-3">
@@ -55,13 +55,13 @@
             </div>
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label asp-for="Prepared_By" class="control-label"></label>
+                    <label class="control-label">Prepared By</label>
                     <select asp-for="Prepared_By" name="Prepared_By" class="form-control" asp-items="@(new SelectList(ViewBag.users))"></select>
                     <span asp-validation-for="Prepared_By" class="text-danger"></span>
                 </div>
                 <div class="col-md-4"></div>
                 <div class="form-group col-md-4">
-                    <label asp-for="Approved_By" class="control-label"></label>
+                    <label class="control-label">Approved By</label>
                     <select asp-for="Approved_By" name="Approved_By" class="form-control" asp-items="@(new SelectList(ViewBag.adminLeads))"></select>
                     <span asp-validation-for="Approved_By" class="text-danger"></span>
                 </div>
@@ -86,7 +86,7 @@
 
             <div class="form-group col-md-6">
                 <label class="control-label">Is this project federal aid eligible?</label>
-                 <select asp-for="Federal_Aid" name="Federal_Aid" class="form-control" asp-items="@ViewBag.options"></select>
+                <select asp-for="Federal_Aid" name="Federal_Aid" class="form-control" asp-items="@ViewBag.options"></select>
                 <span asp-validation-for="Federal_Aid" class="text-danger"></span>
             </div>
             <div class="form-group col-md-6">
@@ -103,7 +103,7 @@
                 <label class="control-label">Maintenance Activities Agreement of 7/1/2021 applied?</label>
                 <select asp-for="Activities_Agreement" name="Activities_Agreement" class="form-control" asp-items="@ViewBag.options"></select>
                 <span asp-validation-for="Activities_Agreement" class="text-danger"></span>
-             </div>
+            </div>
             <div class="row">
                 <div class="form-group col-md-4">
                     <label asp-for="Arch_RE" class="control-label"></label>
@@ -112,7 +112,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label asp-for="Arch_RE_Date" class="control-label"></label>
-                    <input asp-for="Arch_RE_Date" class="form-control" type="date"/>
+                    <input asp-for="Arch_RE_Date" class="form-control" type="date" />
                     <span asp-validation-for="Arch_RE_Date" class="text-danger"></span>
                 </div>
             </div>
@@ -122,14 +122,14 @@
                     <select asp-for="Hist_RE" name="Hist_RE" class="form-control" asp-items="@ViewBag.reTypes"></select>
                     <span asp-validation-for="Hist_RE" class="text-danger"></span>
                 </div>
-                
+
                 <div class="form-group col-md-4">
                     <label asp-for="Hist_RE_Date" class="control-label"></label>
-                    <input asp-for="Hist_RE_Date" class="form-control" type="date"/>
+                    <input asp-for="Hist_RE_Date" class="form-control" type="date" />
                     <span asp-validation-for="Hist_RE_Date" class="text-danger"></span>
                 </div>
             </div>
-            
+
 
             <hr />
 
@@ -188,136 +188,160 @@
                 </div>
             </div>
 
-
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#section5').hide();
+                    $('#Minimal_Project_Verification').change(function () {
+                        var selectedValue = $(this).val();
+                        console.log(selectedValue);
+                        if (selectedValue == "True") {
+                            $('#section5').show();
+                        }
+                        else {
+                            $('#section5').hide();
+                        }
+                    });
+                });
+            </script>
 
             <hr />
 
-            <div>
-                <b>Section 5: PCE Verification and Documentation</b>
-            </div>
+            <div id="section5">
+                <div>
+                    <b>Section 5: PCE Verification and Documentation</b>
+                </div>
 
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>1. Does the project add through lanes that would expand the capacity of a roadway?</p>
+                        <p>Note: Climbing and turning lanes typically do not add capacity.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Through_Lanes" name="Through_Lanes" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="Through_Lanes" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>2. Does the project propose to close a road, bridge and/or ramp?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Close_Road" name="Close_Road" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="Close_Road" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>3. Does the project involve right-of-way acquisition including temporary easements?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="ROW_Acquisition" name="ROW_Acquisition" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="ROW_Acquisition" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>4. Does the project involve any permanent change to access control that is not in compliance with approved traffic report recommendations?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Access_Control" name="Access_Control" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="Access_Control" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>5. Are there any structures older than 50 years in the project area?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Fifty_Year_Structure" name="Fifty_Year_Structure" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="Fifty_Year_Structure" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>6. Is individual coordination with agencies other than the WVDNR, Informal USFWS or WVDEP required?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Agency_Coordination" name="Agency_Coordination" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="Agency_Coordination" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>7. Is the project located within any environmental zones in the IPAC screening tool that cannot be mitigated with the Avoidance and Minimization Measures (AMMs) as part of the section 7 ESA D-Key?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="IPAC_Screening_Zone" name="IPAC_Screening_Zone" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="IPAC_Screening_Zone" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>8. Does the project require a US Army Corps of Engineers (Corps) Individual Section 404 permit?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Section_404_Permit" name="Section_404_Permit" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="Section_404_Permit" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>9. Does the project result in ground disturbance of 3 acres or more?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Ground_Disturbance" name="Ground_Disturbance" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="Ground_Disturbance" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>10. Does the project propose to span a navigable waterway that is regulated by the US Coast Gaurd?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Waterway" name="Waterway" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="Waterway" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>11. Does the project require a special use permit from a federal agency for construction?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Special_Use_Permit" name="Special_Use_Permit" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="Special_Use_Permit" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>12. Does the project increase the regulated floodplain (100-year flood) elevations of a river or lake?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Floodplain" name="Floodplain" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="Floodplain" class="text-danger"></span>
+                    </div>
+                </div>
+                <hr />
+            </div>
 
             <div class="form-group row">
-                <div class="col-md-8">
-                    <p>1. Does the project add through lanes that would expand the capacity of a roadway?</p>
-                    <p>Note: Climbing and turning lanes typically do not add capacity.</p>
-                </div>
-                <div class="col-md-4">
-                    <select asp-for="Through_Lanes" name="Through_Lanes" class="form-control" asp-items="@ViewBag.options"></select>
-                    <span asp-validation-for="Through_Lanes" class="text-danger"></span>
-                </div>
+                <b class="col-md-6">Does this project require a mussel or crayfish habbitat assessment?</b>
+                <select name="Assessments" class="form-control col-md-2" asp-items="@ViewBag.options"></select>
             </div>
 
-            <div class="form-group row">
-                <div class="col-md-8">
-                    <p>2. Does the project propose to close a road, bridge and/or ramp?</p>
-                </div>
-                <div class="col-md-4">
-                    <select asp-for="Close_Road" name="Close_Road" class="form-control" asp-items="@ViewBag.options"></select>
-                    <span asp-validation-for="Close_Road" class="text-danger"></span>
-                </div>
-            </div>
+            <br />
 
-            <div class="form-group row">
-                <div class="col-md-8">
-                    <p>3. Does the project involve right-of-way acquisition including temporary easements?</p>
-                </div>
-                <div class="col-md-4">
-                    <select asp-for="ROW_Acquisition" name="ROW_Acquisition" class="form-control" asp-items="@ViewBag.options"></select>
-                    <span asp-validation-for="ROW_Acquisition" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col-md-8">
-                    <p>4. Does the project involve any permanent change to access control that is not in compliance with approved traffic report recommendations?</p>
-                </div>
-                <div class="col-md-4">
-                    <select asp-for="Access_Control" name="Access_Control" class="form-control" asp-items="@ViewBag.options"></select>
-                    <span asp-validation-for="Access_Control" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col-md-8">
-                    <p>5. Are there any structures older than 50 years in the project area?</p>
-                </div>
-                <div class="col-md-4">
-                    <select asp-for="Fifty_Year_Structure" name="Fifty_Year_Structure" class="form-control" asp-items="@ViewBag.options"></select>
-                    <span asp-validation-for="Fifty_Year_Structure" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col-md-8">
-                    <p>6. Is individual coordination with agencies other than the WVDNR, Informal USFWS or WVDEP required?</p>
-                </div>
-                <div class="col-md-4">
-                    <select asp-for="Agency_Coordination" name="Agency_Coordination" class="form-control" asp-items="@ViewBag.options"></select>
-                    <span asp-validation-for="Agency_Coordination" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col-md-8">
-                    <p>7. Is the project located within any environmental zones in the IPAC screening tool that cannot be mitigated with the Avoidance and Minimization Measures (AMMs) as part of the section 7 ESA D-Key?</p>
-                </div>
-                <div class="col-md-4">
-                    <select asp-for="IPAC_Screening_Zone" name="IPAC_Screening_Zone" class="form-control" asp-items="@ViewBag.options"></select>
-                    <span asp-validation-for="IPAC_Screening_Zone" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col-md-8">
-                    <p>8. Does the project require a US Army Corps of Engineers (Corps) Individual Section 404 permit?</p>
-                </div>
-                <div class="col-md-4">
-                    <select asp-for="Section_404_Permit" name="Section_404_Permit" class="form-control" asp-items="@ViewBag.options"></select>
-                    <span asp-validation-for="Section_404_Permit" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col-md-8">
-                    <p>9. Does the project result in ground disturbance of 3 acres or more?</p>
-                </div>
-                <div class="col-md-4">
-                    <select asp-for="Ground_Disturbance" name="Ground_Disturbance" class="form-control" asp-items="@ViewBag.options"></select>
-                    <span asp-validation-for="Ground_Disturbance" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col-md-8">
-                    <p>10. Does the project propose to span a navigable waterway that is regulated by the US Coast Gaurd?</p>
-                </div>
-                <div class="col-md-4">
-                    <select asp-for="Waterway" name="Waterway" class="form-control" asp-items="@ViewBag.options"></select>
-                    <span asp-validation-for="Waterway" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col-md-8">
-                    <p>11. Does the project require a special use permit from a federal agency for construction?</p>
-                </div>
-                <div class="col-md-4">
-                    <select asp-for="Special_Use_Permit" name="Special_Use_Permit" class="form-control" asp-items="@ViewBag.options"></select>
-                    <span asp-validation-for="Special_Use_Permit" class="text-danger"></span>
-                </div>
-            </div>
-
-            <div class="form-group row">
-                <div class="col-md-8">
-                    <p>12. Does the project increase the regulated floodplain (100-year flood) elevations of a river or lake?</p>
-                </div>
-                <div class="col-md-4">
-                    <select asp-for="Floodplain" name="Floodplain" class="form-control" asp-items="@ViewBag.options"></select>
-                    <span asp-validation-for="Floodplain" class="text-danger"></span>
-                </div>
-            </div>
-   
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
