@@ -19,11 +19,29 @@ namespace EnvApp.Controllers
         }
 
         // GET: TypeOnes
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString, string currentFilter, int? pageNumber)
         {
+            ViewData["CurrentFilter"] = searchString;
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
             var forms = from s in _context.TypeOne
                         select s;
-            return View(await forms.ToListAsync());
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                forms = forms.Where(s => s.State_Project_Number.Contains(searchString)
+                                       || s.Name.Contains(searchString)
+                                       || s.Federal_Project_Number.Contains(searchString));
+            }
+            int pageSize = 10;
+            return View(await PaginatedList<TypeOne>.CreateAsync(forms.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
         // GET: TypeOnes/Details/5
