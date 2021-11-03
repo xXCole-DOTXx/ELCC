@@ -41,7 +41,7 @@ namespace EnvApp.Models.DB
         public bool? Waterway { get; set; }
         public bool? Special_Use_Permit { get; set; }
         public bool? Floodplain { get; set; }
-        public string Prepared_By { get; set; }
+        public string? Prepared_By { get; set; }
         public string Approved_By { get; set; }
         public string Adduser { get; set; }
         public DateTime? Date_Added { get; set; }

@@ -108,7 +108,7 @@ namespace EnvApp.Controllers
             archUsers.Insert(0, new NR_User { ID = 0, Name = "Select" });
             ViewBag.archUsers = archUsers.ToList();
             
-            List < SelectListItem > options = new()
+            List <SelectListItem> options = new()
             {
                 new SelectListItem { Value = "True", Text = "Yes" },
                 new SelectListItem { Value = "False", Text = "No" }

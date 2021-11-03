@@ -12,166 +12,333 @@
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="ID" />
-            <div class="form-group">
-                <label asp-for="State_Project_Number" class="control-label"></label>
-                <input asp-for="State_Project_Number" class="form-control" />
-                <span asp-validation-for="State_Project_Number" class="text-danger"></span>
+            <div>
+                <b>Section 1: Project Information</b>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">State Project Number</label>
+                    <input asp-for="State_Project_Number" class="form-control" />
+                    <span asp-validation-for="State_Project_Number" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Federal Project Number</label>
+                    <input asp-for="Federal_Project_Number" class="form-control" />
+                    <span asp-validation-for="Federal_Project_Number" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Project Name</label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label class="control-label">Route Number</label>
+                    <input asp-for="Route_Number" class="form-control" />
+                    <span asp-validation-for="Route_Number" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-3">
+                    <label asp-for="County" class="control-label"></label>
+                    <select asp-for="County" name="County" class="form-control" asp-items="@ViewBag.counties"></select>
+                    <span asp-validation-for="County" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-3">
+                    <label class="control-label">Work Type</label>
+                    <input asp-for="Work_Type" class="form-control" />
+                    <span asp-validation-for="Work_Type" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-3">
+                    <label asp-for="Coordinates" class="control-label"></label>
+                    <input asp-for="Coordinates" class="form-control" />
+                    <span asp-validation-for="Coordinates" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">Prepared By</label>
+                    <select asp-for="Prepared_By" name="Prepared_By" class="form-control" asp-items="@(new SelectList(ViewBag.users))"></select>
+                    <span asp-validation-for="Prepared_By" class="text-danger"></span>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Approved By</label>
+                    <select asp-for="Approved_By" name="Approved_By" class="form-control" asp-items="@(new SelectList(ViewBag.adminLeads))"></select>
+                    <span asp-validation-for="Approved_By" class="text-danger"></span>
+                </div>
+            </div>
+
+            <hr />
+
+            <div>
+                <b>Section 2: Project Description and Purpose</b>
+                <p>Briefly describe the project, including purpose, location and limits, additional sheets may be added to the checklist, if necessary:</p>
             </div>
             <div class="form-group">
-                <label asp-for="Federal_Project_Number" class="control-label"></label>
-                <input asp-for="Federal_Project_Number" class="form-control" />
-                <span asp-validation-for="Federal_Project_Number" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Route_Number" class="control-label"></label>
-                <input asp-for="Route_Number" class="form-control" />
-                <span asp-validation-for="Route_Number" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="County" class="control-label"></label>
-                <input asp-for="County" class="form-control" />
-                <span asp-validation-for="County" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Work_Type" class="control-label"></label>
-                <input asp-for="Work_Type" class="form-control" />
-                <span asp-validation-for="Work_Type" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Coordinates" class="control-label"></label>
-                <input asp-for="Coordinates" class="form-control" />
-                <span asp-validation-for="Coordinates" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Project_Description" class="control-label"></label>
-                <input asp-for="Project_Description" class="form-control" />
+                <textarea asp-for="Project_Description" class="form-control"></textarea>
                 <span asp-validation-for="Project_Description" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Federal_Aid" class="control-label"></label>
-                <input asp-for="Federal_Aid" class="form-control" />
+
+            <hr />
+
+            <div>
+                <b>Section 3: PCE Type</b>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label class="control-label">Is this project federal aid eligible?</label>
+                <select asp-for="Federal_Aid" name="Federal_Aid" class="form-control" asp-items="@ViewBag.options"></select>
                 <span asp-validation-for="Federal_Aid" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="CE_Category" class="control-label"></label>
+            <div class="form-group col-md-6">
+                <label class="control-label">What CE category does this action fall under?</label>
                 <input asp-for="CE_Category" class="form-control" />
                 <span asp-validation-for="CE_Category" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Amms" class="control-label"></label>
+            <div class="form-group col-md-6">
+                <label class="control-label">AMMs applied?</label>
                 <input asp-for="Amms" class="form-control" />
                 <span asp-validation-for="Amms" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Activities_Agreement" /> @Html.DisplayNameFor(model => model.Activities_Agreement)
-                </label>
+            <div class="form-group col-md-6">
+                <label class="control-label">Maintenance Activities Agreement of 7/1/2021 applied?</label>
+                <select asp-for="Activities_Agreement" name="Activities_Agreement" class="form-control" asp-items="@ViewBag.options"></select>
+                <span asp-validation-for="Activities_Agreement" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Arch_RE" class="control-label"></label>
-                <input asp-for="Arch_RE" class="form-control" />
-                <span asp-validation-for="Arch_RE" class="text-danger"></span>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label asp-for="Arch_RE" class="control-label"></label>
+                    <select asp-for="Arch_RE" name="Arch_RE" class="form-control" asp-items="@ViewBag.reTypes"></select>
+                    <span asp-validation-for="Arch_RE" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="Arch_RE_Date" class="control-label"></label>
+                    <input asp-for="Arch_RE_Date" class="form-control" type="date" />
+                    <span asp-validation-for="Arch_RE_Date" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Hist_RE" class="control-label"></label>
-                <input asp-for="Hist_RE" class="form-control" />
-                <span asp-validation-for="Hist_RE" class="text-danger"></span>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label asp-for="Hist_RE" class="control-label"></label>
+                    <select asp-for="Hist_RE" name="Hist_RE" class="form-control" asp-items="@ViewBag.reTypes"></select>
+                    <span asp-validation-for="Hist_RE" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label asp-for="Hist_RE_Date" class="control-label"></label>
+                    <input asp-for="Hist_RE_Date" class="form-control" type="date" />
+                    <span asp-validation-for="Hist_RE_Date" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Arch_RE_Date" class="control-label"></label>
-                <input asp-for="Arch_RE_Date" class="form-control" />
-                <span asp-validation-for="Arch_RE_Date" class="text-danger"></span>
+
+
+            <hr />
+
+            <div>
+                <b>Section 4: PCE Minimal Project Verification and Documentation</b>
+
+                <p>Does the project fall under one of the following project types?</p>
+                <p>
+                    • Roadway Resurfacing, Striping, Sealing, Raised Pavement Markers, High Friction Surface Treatment, Cold Mix Asphalt Paving
+                    Lighting
+                </p>
+                <p>
+                    • Bridge Clean & Paint
+                </p>
+                <p>
+                    • Bridge Overlay / LMC
+                </p>
+                <p>
+                    • Sign Installation / Renovation
+                </p>
+                <p>
+                    • Traffic Signal Installation / Renovation / Modification
+                </p>
+                <p>
+                    • Emergency Project (such as slide repair, debris removal, etc.) that does not involve work below Ordinary High Water of any
+                    stream, Lake or water body and Not Within a National wildlife refuge, National Park, National Forest, National River or any
+                    other federally managed area.
+                </p>
+                <p>
+                    • Railroad Betterments, Crossing Device Upgrades, Crossing Surface Replacements, Track Circuit Additions
+                </p>
+                <p>
+                    • Warning Flashers
+                </p>
+                <p>
+                    • Dynamic Message Signs
+                </p>
+                <p>
+                    • Project Within Existing Right-of-Way With No Additional Land Disturbance Required Beyond the Currently Disturbed Areas
+                    and Not Within a National wildlife refuge, National Park, National Forest, National River or any other federally operated area
+                    requiring Work That Exceeds Regular Maintenance
+                </p>
+                <p>
+                    • Utility Installations
+                </p>
+                <p>
+                    If the answer is “Yes” then the project qualifies as a Type 1 PCE and the checklist is complete and attach all supporting
+                    information to the checklist.
+                </p>
+                <p>
+                    If the answer is “No” continue to section 5.
+                </p>
+                <div class="form-group col-md-2">
+                    <select asp-for="Minimal_Project_Verification" name="Minimal_Project_Verification" class="form-control" asp-items="@ViewBag.options"></select>
+                    <span asp-validation-for="Minimal_Project_Verification" class="text-danger"></span>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Hist_RE_Date" class="control-label"></label>
-                <input asp-for="Hist_RE_Date" class="form-control" />
-                <span asp-validation-for="Hist_RE_Date" class="text-danger"></span>
+
+            <hr />
+
+            <div id="section5">
+                <div>
+                    <b>Section 5: PCE Verification and Documentation</b>
+                </div>
+
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>1. Does the project add through lanes that would expand the capacity of a roadway?</p>
+                        <p>Note: Climbing and turning lanes typically do not add capacity.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Through_Lanes" name="Through_Lanes" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="Through_Lanes" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>2. Does the project propose to close a road, bridge and/or ramp?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Close_Road" name="Close_Road" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="Close_Road" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>3. Does the project involve right-of-way acquisition including temporary easements?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="ROW_Acquisition" name="ROW_Acquisition" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="ROW_Acquisition" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>4. Does the project involve any permanent change to access control that is not in compliance with approved traffic report recommendations?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Access_Control" name="Access_Control" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="Access_Control" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>5. Are there any structures older than 50 years in the project area?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Fifty_Year_Structure" name="Fifty_Year_Structure" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="Fifty_Year_Structure" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>6. Is individual coordination with agencies other than the WVDNR, Informal USFWS or WVDEP required?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Agency_Coordination" name="Agency_Coordination" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="Agency_Coordination" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>7. Is the project located within any environmental zones in the IPAC screening tool that cannot be mitigated with the Avoidance and Minimization Measures (AMMs) as part of the section 7 ESA D-Key?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="IPAC_Screening_Zone" name="IPAC_Screening_Zone" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="IPAC_Screening_Zone" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>8. Does the project require a US Army Corps of Engineers (Corps) Individual Section 404 permit?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Section_404_Permit" name="Section_404_Permit" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="Section_404_Permit" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>9. Does the project result in ground disturbance of 3 acres or more?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Ground_Disturbance" name="Ground_Disturbance" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="Ground_Disturbance" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>10. Does the project propose to span a navigable waterway that is regulated by the US Coast Gaurd?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Waterway" name="Waterway" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="Waterway" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>11. Does the project require a special use permit from a federal agency for construction?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Special_Use_Permit" name="Special_Use_Permit" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="Special_Use_Permit" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>12. Does the project increase the regulated floodplain (100-year flood) elevations of a river or lake?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Floodplain" name="Floodplain" class="form-control" asp-items="@ViewBag.options"></select>
+                        <span asp-validation-for="Floodplain" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <p>
+                    If the answers to all questions in Section 5 are “No” then the project qualifies as a Type I PCE. If any answer in Section 5 is
+                    “Yes” then the project does not qualify as a Type I PCE.
+                </p>
+                <p>
+                    If the project qualifies for a Type 1 PCE the completed and approved checklist and all supporting information should be
+                    submitted to the appropriate Project Designer. If the project does not qualify as a Type 1 PCE it must be evaluated with the
+                    appropriate NEPA document.
+                </p>
+                <hr />
             </div>
-            <div class="form-group">
-                <label asp-for="Through_Lanes" class="control-label"></label>
-                <input asp-for="Through_Lanes" class="form-control" />
-                <span asp-validation-for="Through_Lanes" class="text-danger"></span>
+
+            <div class="form-group row">
+                <b class="col-md-6">Does this project require a mussel or crayfish habbitat assessment?</b>
+                <select name="Assessments" class="form-control col-md-2" asp-items="@ViewBag.options"></select>
             </div>
+
+            <br />
+
             <div class="form-group">
-                <label asp-for="Close_Road" class="control-label"></label>
-                <input asp-for="Close_Road" class="form-control" />
-                <span asp-validation-for="Close_Road" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ROW_Acquisition" class="control-label"></label>
-                <input asp-for="ROW_Acquisition" class="form-control" />
-                <span asp-validation-for="ROW_Acquisition" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Access_Control" class="control-label"></label>
-                <input asp-for="Access_Control" class="form-control" />
-                <span asp-validation-for="Access_Control" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Fifty_Year_Structure" class="control-label"></label>
-                <input asp-for="Fifty_Year_Structure" class="form-control" />
-                <span asp-validation-for="Fifty_Year_Structure" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Agency_Coordination" class="control-label"></label>
-                <input asp-for="Agency_Coordination" class="form-control" />
-                <span asp-validation-for="Agency_Coordination" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IPAC_Screening_Zone" class="control-label"></label>
-                <input asp-for="IPAC_Screening_Zone" class="form-control" />
-                <span asp-validation-for="IPAC_Screening_Zone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Section_404_Permit" class="control-label"></label>
-                <input asp-for="Section_404_Permit" class="form-control" />
-                <span asp-validation-for="Section_404_Permit" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Ground_Disturbance" class="control-label"></label>
-                <input asp-for="Ground_Disturbance" class="form-control" />
-                <span asp-validation-for="Ground_Disturbance" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Waterway" class="control-label"></label>
-                <input asp-for="Waterway" class="form-control" />
-                <span asp-validation-for="Waterway" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Special_Use_Permit" class="control-label"></label>
-                <input asp-for="Special_Use_Permit" class="form-control" />
-                <span asp-validation-for="Special_Use_Permit" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Floodplain" class="control-label"></label>
-                <input asp-for="Floodplain" class="form-control" />
-                <span asp-validation-for="Floodplain" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Prepared_By" class="control-label"></label>
-                <input asp-for="Prepared_By" class="form-control" />
-                <span asp-validation-for="Prepared_By" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Approved_By" class="control-label"></label>
-                <input asp-for="Approved_By" class="form-control" />
-                <span asp-validation-for="Approved_By" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Adduser" class="control-label"></label>
-                <input asp-for="Adduser" class="form-control" />
-                <span asp-validation-for="Adduser" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Date_Added" class="control-label"></label>
-                <input asp-for="Date_Added" class="form-control" />
-                <span asp-validation-for="Date_Added" class="text-danger"></span>
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

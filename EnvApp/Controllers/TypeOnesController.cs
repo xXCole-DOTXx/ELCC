@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EnvApp.Models.DB;
+using System.Net.Mail;
+using System.Net;
 
 namespace EnvApp.Controllers
 {
@@ -160,12 +162,17 @@ namespace EnvApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,State_Project_Number,Federal_Project_Number,Name,Route_Number,County,Work_Type,Coordinates,Project_Description,Federal_Aid,Minimal_Project_Verification,CE_Category,Amms,Activities_Agreement,Prepared_By,Approved_By,Arch_RE,Hist_RE,Arch_RE_Date,Hist_RE_Date,Through_Lanes,Close_Road,ROW_Acquisition,Access_Control,Fifty_Year_Structure,Agency_Coordination,IPAC_Screening_Zone,Section_404_Permit,Ground_Disturbance,Waterway,Special_Use_Permit,Floodplain,Adduser,Date_Added")] TypeOne typeOne)
+        public async Task<IActionResult> Create([Bind("ID,State_Project_Number,Federal_Project_Number,Name,Route_Number,County,Work_Type,Coordinates,Project_Description,Federal_Aid,Minimal_Project_Verification,CE_Category,Amms,Activities_Agreement,Prepared_By,Approved_By,Arch_RE,Hist_RE,Arch_RE_Date,Hist_RE_Date,Through_Lanes,Close_Road,ROW_Acquisition,Access_Control,Fifty_Year_Structure,Agency_Coordination,IPAC_Screening_Zone,Section_404_Permit,Ground_Disturbance,Waterway,Special_Use_Permit,Floodplain,Adduser,Date_Added")] TypeOne typeOne, bool Assessment)
         {
+            System.Diagnostics.Debug.WriteLine("Prepared by: " + typeOne.Prepared_By);
             if (ModelState.IsValid)
             {
                 typeOne.Adduser = User.Identity.Name;
                 typeOne.Date_Added = DateTime.Today;
+                if(Assessment)
+                {
+                    SendEmail("Cole.k.perry@wv.gov");
+                }
                 _context.Add(typeOne);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -256,6 +263,22 @@ namespace EnvApp.Controllers
         private bool TypeOneExists(long id)
         {
             return _context.TypeOne.Any(e => e.ID == id);
+        }
+
+        public void SendEmail(string recipient)
+        {
+            //send an e-mail to procuremnt to let them know an invalid e-mail was provided, and that the software in question is expiring.  
+            string emailText = "<html><body><div><br>A new project has been added and you were listed as one of the managers.</ div ></ body ></ html >";
+            MailMessage myMail = new MailMessage("DOHEnvironmentalAppSrv@wv.gov", recipient);
+            myMail.IsBodyHtml = true;
+            myMail.Subject = "New ELCC Project";
+            myMail.Body = emailText;
+            SmtpClient client1 = new SmtpClient("relay.wv.gov");
+            client1.Port = 25;
+            client1.EnableSsl = false;
+            client1.UseDefaultCredentials = false; // Important: This line of code must be executed before setting the NetworkCredentials object, otherwise the setting will be reset (a bug in .NET)
+            NetworkCredential cred1 = new System.Net.NetworkCredential("DOHEnvironmentalAppSrv@wv.gov", "wnC6W6?C"); client1.Credentials = cred1;
+            client1.Send(myMail);
         }
     }
 }
