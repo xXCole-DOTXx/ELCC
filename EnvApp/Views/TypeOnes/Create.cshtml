@@ -16,7 +16,7 @@
 <hr />
 <div class="row">
     <div class="col-md-12">
-        <form asp-action="Create">
+        <form asp-controller="TypeOnes" asp-action="Create" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div>
                 <b>Section 1: Project Information</b>
@@ -201,7 +201,7 @@
                     $('#Minimal_Project_Verification').change(function () {
                         var selectedValue = $(this).val();
                         console.log(selectedValue);
-                        if (selectedValue == "True") {
+                        if (selectedValue == "False") {
                             $('#section5').show();
                         }
                         else {
@@ -354,7 +354,11 @@
 
             <div class="form-group row">
                 <b class="col-md-6">Does this project require a mussel or crayfish habbitat assessment?</b>
-                <select name="Assessments" class="form-control col-md-2" asp-items="@ViewBag.options"></select>
+                <select name="Assessments" class="form-control col-md-2" asp-items="@ViewBag.assessments"></select>
+            </div>
+            <div class="form-group row">
+                <b class="col-md-6">Does this project require a bat habbitat assessment?</b>
+                <select name="Bat" class="form-control col-md-2" asp-items="@ViewBag.options"></select>
             </div>
 
             <br />

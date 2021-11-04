@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/OR28UiyXyB9/7qVpO4fcnsxJKujKvs129tiYaYb3kgwm4EkaGq+T5r6CU+EVW8ih5/Pyo622JEIE1BkKZHrMA==",
+  "dgSpecHash": "s47XMdxNER60vQaN4CISSCw2CW3nNuUwHno0EoOKHr7sC7LJz3/vVcvUtmCGFXCfXarXG0cUU5uxoepy9zqMUw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\e096752\\Documents\\Cole's Git Repos\\ELCC\\EnvApp\\EnvApp.csproj",
+  "projectFilePath": "C:\\Users\\e096752\\Documents\\Repos\\ELCC\\EnvApp\\EnvApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\e096752\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\e096752\\.nuget\\packages\\jquery\\1.12.4\\jquery.1.12.4.nupkg.sha512",
