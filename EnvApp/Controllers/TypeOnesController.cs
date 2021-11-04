@@ -87,28 +87,26 @@ namespace EnvApp.Controllers
                 typeOne.Adduser = User.Identity.Name;
                 typeOne.Date_Added = DateTime.Today;
                 System.Diagnostics.Debug.WriteLine("Prepared by again: " + typeOne.Prepared_By);
-                var prep = typeOne.Prepared_By;
-                typeOne.Prepared_By = prep;
-                _context.Add(typeOne);
-                await _context.SaveChangesAsync();
                 //Send all History and Archaeology Unit Leaders an email
                 List<string> histAndArchLeads = (from s in _context.NR_Users
                                            where s.User_Type == "Unit Leader" && s.Unit == "History" || s.Unit == "Archaeology"
                                            select s.Email_Address).ToList();
                 foreach(var email in histAndArchLeads)
                 {
-                    SendEmail(email);
+                    //SendEmail(email);
                 }
                 //Send an email to Traci if project needs a Mussel or Crayfish habitat assessement (Natural resources Lead)
                 if (Assessment != "No" )
                 {
-                    SendEmail("Cole.k.perry@wv.gov");
+                    //SendEmail("Cole.k.perry@wv.gov");
                 }
                 //Send an email to bat lady if project needs a bat habitat assessement
                 if (Bat)
                 {
-                    SendEmail("Cole.k.perry@wv.gov");
+                    //SendEmail("Cole.k.perry@wv.gov");
                 }
+                _context.Add(typeOne);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(typeOne);
@@ -127,6 +125,7 @@ namespace EnvApp.Controllers
             {
                 return NotFound();
             }
+            DropDowns();
             return View(typeOne);
         }
 
@@ -141,6 +140,8 @@ namespace EnvApp.Controllers
             {
                 return NotFound();
             }
+
+            DropDowns();
 
             if (ModelState.IsValid)
             {
