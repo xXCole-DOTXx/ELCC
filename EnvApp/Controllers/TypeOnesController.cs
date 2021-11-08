@@ -77,7 +77,7 @@ namespace EnvApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,State_Project_Number,Federal_Project_Number,Name,Route_Number,County,Work_Type,Coordinates,Project_Description,Federal_Aid,Minimal_Project_Verification,CE_Category,Amms,Activities_Agreement,Arch_RE,Hist_RE,Arch_RE_Date,Hist_RE_Date,Through_Lanes,Close_Road,ROW_Acquisition,Access_Control,Fifty_Year_Structure,Agency_Coordination,IPAC_Screening_Zone,Section_404_Permit,Ground_Disturbance,Waterway,Special_Use_Permit,Floodplain,Prepared_By,Approved_By,Adduser,Date_Added")] TypeOne typeOne, string Assessment, bool Bat)
+        public async Task<IActionResult> Create([Bind("ID,State_Project_Number,Federal_Project_Number,Name,Route_Number,County,Work_Type,Coordinates,Project_Description,Federal_Aid,Minimal_Project_Verification,CE_Category,Amms,Activities_Agreement,Arch_RE,Hist_RE,Arch_RE_Date,Hist_RE_Date,Through_Lanes,Close_Road,ROW_Acquisition,Access_Control,Fifty_Year_Structure,Agency_Coordination,IPAC_Screening_Zone,Section_404_Permit,Ground_Disturbance,Waterway,Special_Use_Permit,Floodplain,Prepared_By,Approved_By,Adduser,Date_Added")] TypeOne typeOne, string Assessment, bool? Bat)
         {
             DropDowns();
 
@@ -101,7 +101,7 @@ namespace EnvApp.Controllers
                     //SendEmail("Cole.k.perry@wv.gov");
                 }
                 //Send an email to bat lady if project needs a bat habitat assessement
-                if (Bat)
+                if (Bat == true)
                 {
                     //SendEmail("Cole.k.perry@wv.gov");
                 }
@@ -233,7 +233,7 @@ namespace EnvApp.Controllers
                 new SelectListItem { Value = "True", Text = "Yes" },
                 new SelectListItem { Value = "False", Text = "No" }
             };
-            options.Insert(0, new SelectListItem { Value = "Select" });
+            options.Insert(0, new SelectListItem { Value = "", Text = "Select" });
             ViewBag.options = options;
 
             List<SelectListItem> assessments = new()
@@ -243,7 +243,7 @@ namespace EnvApp.Controllers
                 new SelectListItem { Value = "Both", Text = "Both" },
                 new SelectListItem { Value = "No", Text = "No" }
             };
-            assessments.Insert(0, new SelectListItem { Value = "Select" });
+            assessments.Insert(0, new SelectListItem { Value = null, Text = "Select" });
             ViewBag.assessments = assessments;
 
             List<SelectListItem> reTypes = new()
@@ -253,7 +253,7 @@ namespace EnvApp.Controllers
                 new SelectListItem { Value = "SHPO", Text = "SHPO" },
                 new SelectListItem { Value = "Programatic Agreement", Text = "Programatic Agreement" }
             };
-            reTypes.Insert(0, new SelectListItem { Value = "Select", Text = "Select" });
+            reTypes.Insert(0, new SelectListItem { Value = null, Text = "Select" });
             ViewBag.reTypes = reTypes;
 
             List<SelectListItem> counties = new()

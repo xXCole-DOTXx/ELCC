@@ -295,7 +295,7 @@ namespace EnvApp.Controllers
                 new SelectListItem { Value = "True", Text = "Yes" },
                 new SelectListItem { Value = "False", Text = "No" }
             };
-            options.Insert(0, new SelectListItem { Value = "Select" });
+            options.Insert(0, new SelectListItem { Value = null, Text = "Select" });
             ViewBag.options = options;
 
             List<SelectListItem> assessments = new()
@@ -305,7 +305,7 @@ namespace EnvApp.Controllers
                 new SelectListItem { Value = "Both", Text = "Both" },
                 new SelectListItem { Value = "No", Text = "No" }
             };
-            assessments.Insert(0, new SelectListItem { Value = "Select" });
+            assessments.Insert(0, new SelectListItem { Value = null, Text= "Select" });
             ViewBag.assessments = assessments;
 
             List<SelectListItem> reTypes = new()
@@ -315,7 +315,7 @@ namespace EnvApp.Controllers
                 new SelectListItem { Value = "SHPO", Text = "SHPO" },
                 new SelectListItem { Value = "Programatic Agreement", Text = "Programatic Agreement" }
             };
-            reTypes.Insert(0, new SelectListItem { Value = "Select", Text = "Select" });
+            reTypes.Insert(0, new SelectListItem { Value = null, Text = "Select" });
             ViewBag.reTypes = reTypes;
 
             List<SelectListItem> counties = new()
