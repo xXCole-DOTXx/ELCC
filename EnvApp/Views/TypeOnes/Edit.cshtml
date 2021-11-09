@@ -4,13 +4,19 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
+<h3 style="text-align: center !important;">
+    WEST VIRGINIA DIVISION OF HIGHWAYS
 
-<h4>TypeOne</h4>
+    TYPE 1 PROGRAMMATIC CATEGORICAL EXCLUSION (PCE) – CENTRAL OFFICE
+
+    DETERMINATION CHECKLIST
+</h3>
+<p style="text-align: center !important;">(For projects that will not result in unusual circumstances described in 23 CFR § 771.117(b))</p>
+
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
+    <div class="col-md-12">
+        <form asp-controller="TypeOnes" asp-action="Edit" method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div>
                 <b>Section 1: Project Information</b>
@@ -107,25 +113,25 @@
             </div>
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label asp-for="Arch_RE" class="control-label"></label>
+                    <label class="control-label">Archaeology RE</label>
                     <select asp-for="Arch_RE" name="Arch_RE" class="form-control" asp-items="@ViewBag.reTypes"></select>
                     <span asp-validation-for="Arch_RE" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-4">
-                    <label asp-for="Arch_RE_Date" class="control-label"></label>
+                    <label class="control-label">Archaeology RE Date</label>
                     <input asp-for="Arch_RE_Date" class="form-control" type="date" />
                     <span asp-validation-for="Arch_RE_Date" class="text-danger"></span>
                 </div>
             </div>
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label asp-for="Hist_RE" class="control-label"></label>
+                    <label class="control-label">History RE</label>
                     <select asp-for="Hist_RE" name="Hist_RE" class="form-control" asp-items="@ViewBag.reTypes"></select>
                     <span asp-validation-for="Hist_RE" class="text-danger"></span>
                 </div>
 
                 <div class="form-group col-md-4">
-                    <label asp-for="Hist_RE_Date" class="control-label"></label>
+                    <label class="control-label">History RE Date</label>
                     <input asp-for="Hist_RE_Date" class="form-control" type="date" />
                     <span asp-validation-for="Hist_RE_Date" class="text-danger"></span>
                 </div>
@@ -188,6 +194,22 @@
                     <span asp-validation-for="Minimal_Project_Verification" class="text-danger"></span>
                 </div>
             </div>
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#section5').hide();
+                    $('#Minimal_Project_Verification').change(function () {
+                        var selectedValue = $(this).val();
+                        console.log(selectedValue);
+                        if (selectedValue == "False") {
+                            $('#section5').show();
+                        }
+                        else {
+                            $('#section5').hide();
+                        }
+                    });
+                });
+            </script>
 
             <hr />
 
@@ -332,16 +354,17 @@
 
             <div class="form-group row">
                 <b class="col-md-6">Does this project require a mussel or crayfish habbitat assessment?</b>
-                <select name="Assessments" class="form-control col-md-2" asp-items="@ViewBag.options"></select>
+                <select name="Assessments" class="form-control col-md-2" asp-items="@ViewBag.assessments"></select>
+            </div>
+            <div class="form-group row">
+                <b class="col-md-6">Does this project require a bat habbitat assessment?</b>
+                <select name="Bat" class="form-control col-md-2" asp-items="@ViewBag.options"></select>
             </div>
 
             <br />
 
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Save Changes" class="btn btn-primary" />
             </div>
         </form>
     </div>
