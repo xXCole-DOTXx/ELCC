@@ -4,207 +4,365 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h3 style="text-align: center !important;">
+    WEST VIRGINIA DIVISION OF HIGHWAYS
+
+    TYPE 1 PROGRAMMATIC CATEGORICAL EXCLUSION (PCE) – CENTRAL OFFICE
+
+    DETERMINATION CHECKLIST
+</h3>
+<p style="text-align: center !important;">(For projects that will not result in unusual circumstances described in 23 CFR § 771.117(b))</p>
+
+<hr />
+<div class="row">
+    <div class="col-md-12">
+            <div>
+                <b>Section 1: Project Information</b>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">State Project Number</label>
+                    <p class="form-control">@Html.DisplayFor(model => model.State_Project_Number)</p>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Federal Project Number</label>
+                    <p class="form-control">@Html.DisplayFor(model => model.Federal_Project_Number)</p>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Project Name</label>
+                    <p class="form-control">@Html.DisplayFor(model => model.Name)</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label class="control-label">Route Number</label>
+                    <p class="form-control">@Html.DisplayFor(model => model.Route_Number)</p>
+                </div>
+                <div class="form-group col-md-3">
+                    <label asp-for="County" class="control-label"></label>
+                    <p class="form-control">@Html.DisplayFor(model => model.County)</p>
+                </div>
+                <div class="form-group col-md-3">
+                    <label class="control-label">Work Type</label>
+                    <p class="form-control">@Html.DisplayFor(model => model.Work_Type)</p>
+                </div>
+                <div class="form-group col-md-3">
+                    <label asp-for="Coordinates" class="control-label"></label>
+                    <p class="form-control">@Html.DisplayFor(model => model.Coordinates)</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">Prepared By</label>
+                    <p class="form-control">@Html.DisplayFor(model => model.Prepared_By)</p>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Approved By</label>
+                    <p class="form-control">@Html.DisplayFor(model => model.Approved_By)</p>
+                </div>
+            </div>
+
+            <hr />
+
+            <div>
+                <b>Section 2: Project Description and Purpose</b>
+                <p>Briefly describe the project, including purpose, location and limits, additional sheets may be added to the checklist, if necessary:</p>
+            </div>
+            <div class="form-group">
+                <textarea readonly asp-for="Project_Description" class="form-control"></textarea>
+                <span asp-validation-for="Project_Description" class="text-danger"></span>
+            </div>
+
+            <hr />
+
+            <div>
+                <b>Section 3: PCE Type</b>
+            </div>
+
+            <div class="form-group col-md-6">
+                <label class="control-label">Is this project federal aid eligible?</label>
+                <select asp-for="Federal_Aid" name="Federal_Aid" class="form-control" asp-items="@ViewBag.options" disabled="true"></select>
+                <span asp-validation-for="Federal_Aid" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="control-label">What CE category does this action fall under?</label>
+                <p class="form-control">@Html.DisplayFor(model => model.CE_Category)</p>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="control-label">AMMs applied?</label>
+                <p class="form-control">@Html.DisplayFor(model => model.Amms)</p>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="control-label">Maintenance Activities Agreement of 7/1/2021 applied?</label>
+                <select asp-for="Activities_Agreement" name="Activities_Agreement" class="form-control" asp-items="@ViewBag.options" disabled="true"></select>
+                <span asp-validation-for="Activities_Agreement" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">Archaeology RE</label>
+                    <p class="form-control">@Html.DisplayFor(model => model.Arch_RE)</p>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Archaeology RE Date</label>
+                    <input asp-for="Arch_RE_Date" class="form-control" type="date" disabled="true" />
+                    <span asp-validation-for="Arch_RE_Date" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">History RE</label>
+                    <p class="form-control">@Html.DisplayFor(model => model.Hist_RE)</p>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label class="control-label">History RE Date</label>
+                    <input asp-for="Hist_RE_Date" class="form-control" type="date" disabled="true" />
+                    <span asp-validation-for="Hist_RE_Date" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <hr />
+
+            <div>
+                <b>Section 4: PCE Minimal Project Verification and Documentation</b>
+
+                <p>Does the project fall under one of the following project types?</p>
+                <p>
+                    • Roadway Resurfacing, Striping, Sealing, Raised Pavement Markers, High Friction Surface Treatment, Cold Mix Asphalt Paving
+                    Lighting
+                </p>
+                <p>
+                    • Bridge Clean & Paint
+                </p>
+                <p>
+                    • Bridge Overlay / LMC
+                </p>
+                <p>
+                    • Sign Installation / Renovation
+                </p>
+                <p>
+                    • Traffic Signal Installation / Renovation / Modification
+                </p>
+                <p>
+                    • Emergency Project (such as slide repair, debris removal, etc.) that does not involve work below Ordinary High Water of any
+                    stream, Lake or water body and Not Within a National wildlife refuge, National Park, National Forest, National River or any
+                    other federally managed area.
+                </p>
+                <p>
+                    • Railroad Betterments, Crossing Device Upgrades, Crossing Surface Replacements, Track Circuit Additions
+                </p>
+                <p>
+                    • Warning Flashers
+                </p>
+                <p>
+                    • Dynamic Message Signs
+                </p>
+                <p>
+                    • Project Within Existing Right-of-Way With No Additional Land Disturbance Required Beyond the Currently Disturbed Areas
+                    and Not Within a National wildlife refuge, National Park, National Forest, National River or any other federally operated area
+                    requiring Work That Exceeds Regular Maintenance
+                </p>
+                <p>
+                    • Utility Installations
+                </p>
+                <p>
+                    If the answer is “Yes” then the project qualifies as a Type 1 PCE and the checklist is complete and attach all supporting
+                    information to the checklist.
+                </p>
+                <p>
+                    If the answer is “No” continue to section 5.
+                </p>
+                <div class="form-group col-md-2">
+                    <select asp-for="Minimal_Project_Verification" name="Minimal_Project_Verification" class="form-control" asp-items="@ViewBag.options" disabled="true"></select>
+                    <span asp-validation-for="Minimal_Project_Verification" class="text-danger"></span>
+                </div>
+            </div>
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#section5').hide();
+                    $('#Minimal_Project_Verification').change(function () {
+                        var selectedValue = $(this).val();
+                        console.log(selectedValue);
+                        if (selectedValue == "False") {
+                            $('#section5').show();
+                        }
+                        else {
+                            $('#section5').hide();
+                        }
+                    });
+                });
+            </script>
+
+            <hr />
+
+            <div id="section5">
+                <div>
+                    <b>Section 5: PCE Verification and Documentation</b>
+                </div>
+
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>1. Does the project add through lanes that would expand the capacity of a roadway?</p>
+                        <p>Note: Climbing and turning lanes typically do not add capacity.</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Through_Lanes" name="Through_Lanes" class="form-control" asp-items="@ViewBag.options" disabled="true"></select>
+                        <span asp-validation-for="Through_Lanes" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>2. Does the project propose to close a road, bridge and/or ramp?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Close_Road" name="Close_Road" class="form-control" asp-items="@ViewBag.options" disabled="true"></select>
+                        <span asp-validation-for="Close_Road" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>3. Does the project involve right-of-way acquisition including temporary easements?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="ROW_Acquisition" name="ROW_Acquisition" class="form-control" asp-items="@ViewBag.options" disabled="true"></select>
+                        <span asp-validation-for="ROW_Acquisition" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>4. Does the project involve any permanent change to access control that is not in compliance with approved traffic report recommendations?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Access_Control" name="Access_Control" class="form-control" asp-items="@ViewBag.options" disabled="true"></select>
+                        <span asp-validation-for="Access_Control" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>5. Are there any structures older than 50 years in the project area?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Fifty_Year_Structure" name="Fifty_Year_Structure" class="form-control" asp-items="@ViewBag.options" disabled="true"></select>
+                        <span asp-validation-for="Fifty_Year_Structure" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>6. Is individual coordination with agencies other than the WVDNR, Informal USFWS or WVDEP required?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Agency_Coordination" name="Agency_Coordination" class="form-control" asp-items="@ViewBag.options" disabled="true"></select>
+                        <span asp-validation-for="Agency_Coordination" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>7. Is the project located within any environmental zones in the IPAC screening tool that cannot be mitigated with the Avoidance and Minimization Measures (AMMs) as part of the section 7 ESA D-Key?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="IPAC_Screening_Zone" name="IPAC_Screening_Zone" class="form-control" asp-items="@ViewBag.options" disabled="true"></select>
+                        <span asp-validation-for="IPAC_Screening_Zone" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>8. Does the project require a US Army Corps of Engineers (Corps) Individual Section 404 permit?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Section_404_Permit" name="Section_404_Permit" class="form-control" asp-items="@ViewBag.options" disabled="true"></select>
+                        <span asp-validation-for="Section_404_Permit" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>9. Does the project result in ground disturbance of 3 acres or more?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Ground_Disturbance" name="Ground_Disturbance" class="form-control" asp-items="@ViewBag.options" disabled="true"></select>
+                        <span asp-validation-for="Ground_Disturbance" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>10. Does the project propose to span a navigable waterway that is regulated by the US Coast Gaurd?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Waterway" name="Waterway" class="form-control" asp-items="@ViewBag.options" disabled="true"></select>
+                        <span asp-validation-for="Waterway" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>11. Does the project require a special use permit from a federal agency for construction?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Special_Use_Permit" name="Special_Use_Permit" class="form-control" asp-items="@ViewBag.options" disabled="true"></select>
+                        <span asp-validation-for="Special_Use_Permit" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <p>12. Does the project increase the regulated floodplain (100-year flood) elevations of a river or lake?</p>
+                    </div>
+                    <div class="col-md-4">
+                        <select asp-for="Floodplain" name="Floodplain" class="form-control" asp-items="@ViewBag.options" disabled="true"></select>
+                        <span asp-validation-for="Floodplain" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <p>
+                    If the answers to all questions in Section 5 are “No” then the project qualifies as a Type I PCE. If any answer in Section 5 is
+                    “Yes” then the project does not qualify as a Type I PCE.
+                </p>
+                <p>
+                    If the project qualifies for a Type 1 PCE the completed and approved checklist and all supporting information should be
+                    submitted to the appropriate Project Designer. If the project does not qualify as a Type 1 PCE it must be evaluated with the
+                    appropriate NEPA document.
+                </p>
+                <hr />
+            </div>
+    </div>
+</div>
+
+<div style="text-align: center !important;">
+    <b>
+        This Programmatic Categorical Exclusion is specific to the project as described in the text and shown on the
+
+        attached graphics.
+    </b>
+    <br />
+    <b>
+        IF ANYTHING CHANGES OR IS ADDED OR DELETED, THE PROJECT NEEDS
+
+        TO BE RESUBMITTED TO THE ENVIRONMENTAL SECTION FOR REVIEW.
+    </b>
+    <br />
+    <b>
+        Waste and borrow areas outside of the project limits need a separate review to determine the effects to cultural and natural resources. 
+    </b>
+</div>
+
+<br />
 
 <div>
-    <h4>TypeOne</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.State_Project_Number)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.State_Project_Number)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Federal_Project_Number)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Federal_Project_Number)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Route_Number)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Route_Number)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.County)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.County)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Work_Type)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Work_Type)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Coordinates)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Coordinates)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Project_Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Project_Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Federal_Aid)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Federal_Aid)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CE_Category)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CE_Category)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Amms)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Amms)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Activities_Agreement)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Activities_Agreement)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Arch_RE)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Arch_RE)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Hist_RE)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Hist_RE)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Arch_RE_Date)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Arch_RE_Date)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Hist_RE_Date)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Hist_RE_Date)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Through_Lanes)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Through_Lanes)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Close_Road)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Close_Road)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ROW_Acquisition)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ROW_Acquisition)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Access_Control)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Access_Control)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Fifty_Year_Structure)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Fifty_Year_Structure)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Agency_Coordination)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Agency_Coordination)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IPAC_Screening_Zone)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IPAC_Screening_Zone)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Section_404_Permit)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Section_404_Permit)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Ground_Disturbance)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Ground_Disturbance)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Waterway)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Waterway)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Special_Use_Permit)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Special_Use_Permit)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Floodplain)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Floodplain)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Prepared_By)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Prepared_By)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Approved_By)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Approved_By)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Adduser)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Adduser)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Date_Added)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Date_Added)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

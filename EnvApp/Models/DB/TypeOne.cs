@@ -12,17 +12,25 @@ namespace EnvApp.Models.DB
     {
         [Key]
         public long ID { get; set; }
+        [MaxLength(50)]
         public string State_Project_Number { get; set; }
+        [MaxLength(50)]
         public string Federal_Project_Number { get; set; }
+        [MaxLength(50)]
         public string Name { get; set; }
+        [MaxLength(50)]
         public string Route_Number { get; set; }
         public string County { get; set; }
+        [MaxLength(50)]
         public string Work_Type { get; set; }
+        [MaxLength(100)]
         public string Coordinates { get; set; }
         public string Project_Description { get; set; }
         public bool? Federal_Aid { get; set; }
         public bool? Minimal_Project_Verification { get; set; }
+        [MaxLength(3)]
         public string CE_Category { get; set; }
+        [MaxLength(10)]
         public string Amms { get; set; }
         public bool Activities_Agreement { get; set; }
         public string Arch_RE { get; set; }

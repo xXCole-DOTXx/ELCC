@@ -83,7 +83,7 @@ namespace EnvApp.Controllers
             {
                 return NotFound();
             }
-
+            DropDowns();
             return View(project_Screen);
         }
 
@@ -163,6 +163,7 @@ namespace EnvApp.Controllers
         // GET: Project_Screen/Edit/5
         public async Task<IActionResult> Edit(long? id)
         {
+            DropDowns();
             if (id == null)
             {
                 return NotFound();
@@ -173,9 +174,6 @@ namespace EnvApp.Controllers
             {
                 return NotFound();
             }
-
-            DropDowns();
-
             return View(project_Screen);
         }
 
@@ -289,6 +287,18 @@ namespace EnvApp.Controllers
                                        select s.Name).ToList();
             adminLeads.Insert(0, "Select");
             ViewBag.adminLeads = adminLeads.ToList();
+
+            List<string> histUsers = (from s in _context.NR_Users
+                                       where s.Unit == "History"
+                                       select s.Name).ToList();
+            histUsers.Insert(0, "Select");
+            ViewBag.histUsers = histUsers.ToList();
+
+            List<string> archUsers = (from s in _context.NR_Users
+                                      where s.Unit == "Archaeology"
+                                      select s.Name).ToList();
+            archUsers.Insert(0, "Select");
+            ViewBag.histUsers = archUsers.ToList();
 
             List<SelectListItem> options = new()
             {

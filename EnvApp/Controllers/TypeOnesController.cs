@@ -60,7 +60,7 @@ namespace EnvApp.Controllers
             {
                 return NotFound();
             }
-
+            DropDowns();
             return View(typeOne);
         }
 
@@ -91,19 +91,25 @@ namespace EnvApp.Controllers
                 List<string> histAndArchLeads = (from s in _context.NR_Users
                                            where s.User_Type == "Unit Leader" && s.Unit == "History" || s.Unit == "Archaeology"
                                            select s.Email_Address).ToList();
-                foreach(var email in histAndArchLeads)
+                string emailText1 = "<html><body><div><br>A new Type One form state project number " + typeOne.State_Project_Number + " has been created and you were listed as a Unit Leader. <br> Check it out here: https://dotappstest.transportation.wv.gov/environmentalapp/TypeOnes/Details/"+typeOne.ID+"</ div ></ body ></ html >";
+                string subject1 = "ELCC: New Type One Project";
+                foreach (var email in histAndArchLeads)
                 {
-                    //SendEmail(email);
+                    //SendEmail(email, emailText1, subject1);
                 }
                 //Send an email to Traci if project needs a Mussel or Crayfish habitat assessement (Natural resources Lead)
                 if (Assessment != "No" )
                 {
-                    //SendEmail("Cole.k.perry@wv.gov");
+                    string emailText2 = "<html><body><div><br>A new Type One form state project number " + typeOne.State_Project_Number +  " has been created that needs " + Assessment + " assessment(s). <br> Check it out here: https://dotappstest.transportation.wv.gov/environmentalapp/TypeOnes/Details/" + typeOne.ID + " </ div ></ body ></ html >";
+                    string subject2 = "ELCC: New Type One Project Needs Assessment(s).";
+                    SendEmail("traci.l.cummings@wv.gov", emailText2, subject2);
                 }
                 //Send an email to bat lady if project needs a bat habitat assessement
+                string emailText3 = "<html><body><div><br>A new Type One form state project number " + typeOne.State_Project_Number + " has been created that needs a bat habitat assessment. <br> Check it out here: https://dotappstest.transportation.wv.gov/environmentalapp/TypeOnes/Details/" + typeOne.ID + "</ div ></ body ></ html >";
+                string subject3 = "ELCC: New Type One Project Needs a Bat Habitat Assessment.";
                 if (Bat == true)
                 {
-                    //SendEmail("Cole.k.perry@wv.gov");
+                    SendEmail("traci.l.cummings@wv.gov", emailText3, subject3);
                 }
                 _context.Add(typeOne);
                 await _context.SaveChangesAsync();
@@ -200,14 +206,29 @@ namespace EnvApp.Controllers
             return _context.TypeOne.Any(e => e.ID == id);
         }
 
-        public void SendEmail(string recipient)
+        /* public void SendEmail(string recipient)
+         {
+             //send an e-mail to procuremnt to let them know an invalid e-mail was provided, and that the software in question is expiring.  
+             string emailText = "<html><body><div><br>A new project has been added and you were listed as one of the managers.</ div ></ body ></ html >";
+             MailMessage myMail = new MailMessage("DOHEnvironmentalAppSrv@wv.gov", recipient);
+             myMail.IsBodyHtml = true;
+             myMail.Subject = "New ELCC Project";
+             myMail.Body = emailText;
+             SmtpClient client1 = new SmtpClient("relay.wv.gov");
+             client1.Port = 25;
+             client1.EnableSsl = false;
+             client1.UseDefaultCredentials = false; // Important: This line of code must be executed before setting the NetworkCredentials object, otherwise the setting will be reset (a bug in .NET)
+             NetworkCredential cred1 = new System.Net.NetworkCredential("DOHEnvironmentalAppSrv@wv.gov", "wnC6W6?C"); client1.Credentials = cred1;
+             client1.Send(myMail);
+         }*/
+
+        public void SendEmail(string recipient, string message, string subject)
         {
             //send an e-mail to procuremnt to let them know an invalid e-mail was provided, and that the software in question is expiring.  
-            string emailText = "<html><body><div><br>A new project has been added and you were listed as one of the managers.</ div ></ body ></ html >";
             MailMessage myMail = new MailMessage("DOHEnvironmentalAppSrv@wv.gov", recipient);
             myMail.IsBodyHtml = true;
-            myMail.Subject = "New ELCC Project";
-            myMail.Body = emailText;
+            myMail.Subject = subject;
+            myMail.Body = message;
             SmtpClient client1 = new SmtpClient("relay.wv.gov");
             client1.Port = 25;
             client1.EnableSsl = false;

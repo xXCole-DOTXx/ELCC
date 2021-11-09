@@ -6,157 +6,198 @@
 
 <h1>Details</h1>
 
-<div>
-    <h4>Project_Screen</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.State_Project_Number)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.State_Project_Number)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Federal_Project_Number)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Federal_Project_Number)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Project_Name)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Project_Name)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.County)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.County)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Memo_Date)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Memo_Date)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.From)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.From)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Authorization)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Authorization)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.DSN_PM)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.DSN_PM)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.History)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.History)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.History_PM)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.History_PM)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Review_Exempt_H)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Review_Exempt_H)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SHPO_Approval_H)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SHPO_Approval_H)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Archaeology)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Archaeology)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Archaeology_PM)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Archaeology_PM)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Review_Exempt_A)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Review_Exempt_A)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.SHPO_Approval_A)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.SHPO_Approval_A)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ESA_Key)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ESA_Key)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Crayfish)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Crayfish)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.NLEB_4D)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.NLEB_4D)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.USFWS)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.USFWS)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Mussel_Habitat)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Mussel_Habitat)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Bat_Habitat)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Bat_Habitat)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Adduser)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Adduser)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Date_Added)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Date_Added)
-        </dd>
-    </dl>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">State Project Number</label>
+                    <p class="form-control">@Html.DisplayFor(model => model.State_Project_Number)</p>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Federal Project Number</label>
+                    <p class="form-control">@Html.DisplayFor(model => model.Federal_Project_Number)</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">Project Name</label>
+                    <p class="form-control">@Html.DisplayFor(model => model.Project_Name)</p>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="County" class="control-label"></label>
+                    <p class="form-control">@Html.DisplayFor(model => model.County)</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">Memo Date</label>
+                    <p class="form-control">@Html.DisplayFor(model => model.Memo_Date)</p>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="From" class="control-label"></label>
+                    <p class="form-control">@Html.DisplayFor(model => model.From)</p>
+                </div>
+                <div class="form-group col-md-4">
+                    <label asp-for="Authorization" class="control-label"></label>
+                    <p class="form-control">@Html.DisplayFor(model => model.Authorization)</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">ToPo Quad Name</label>
+                    <p class="form-control">@Html.DisplayFor(model => model.ToPo_Quad_Name)</p>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Bars ID #</label>
+                    <p class="form-control">@Html.DisplayFor(model => model.Bars)</p>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Coordinates</label>
+                    <p class="form-control">@Html.DisplayFor(model => model.Coordinates)</p>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">USFWS Coordination Needed</label>
+                    <select asp-for="USFWS" name="USFWS" class="form-control" asp-items="@ViewBag.options" disabled="true"></select>
+                    <span asp-validation-for="USFWS" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-8" id="usfwsType">
+                    <label class="control-label">USFWS Coordination Type</label>
+                    <textarea asp-for="USFWS_Type" class="form-control" disabled="true"></textarea>
+                    <span asp-validation-for="USFWS_Type" class="text-danger"></span>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#usfwsType').hide();
+                    $('#USFWS').change(function () {
+                        var selectedValue = $(this).val();
+                        console.log(selectedValue);
+                        if (selectedValue == "True") {
+                            $('#usfwsType').show();
+                        }
+                        else {
+                            $('#usfwsType').hide();
+                        }
+                    });
+                });
+            </script>
+
+            <hr />
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">Crayfish Survey Needed</label>
+                    <select asp-for="Crayfish" name="Crayfish" class="form-control" asp-items="@ViewBag.options" disabled="true"></select>
+                    <span asp-validation-for="Crayfish" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Crayfish Habitat Assessment</label>
+                    <select asp-for="Crayfish_Habitat_Assessment" name="Crayfish" class="form-control" asp-items="@ViewBag.options" disabled="true"></select>
+                    <span asp-validation-for="Crayfish_Habitat_Assessment" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4" id="CrayfishNotes">
+                    <label class="control-label">Notes</label>
+                    <p class="form-control">@Html.DisplayFor(model => model.Crayfish_Notes)</p>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#CrayfishNotes').hide();
+                    $('#Crayfish_Habitat_Assessment').change(function () {
+                        var selectedValue = $(this).val();
+                        console.log(selectedValue);
+                        if (selectedValue == "True") {
+                            $('#CrayfishNotes').show();
+                        }
+                        else {
+                            $('#CrayfishNotes').hide();
+                        }
+                    });
+                });
+            </script>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label">Mussel Survey Needed</label>
+                    <select asp-for="Mussel_Stream" name="Mussel_Stream" class="form-control" asp-items="@ViewBag.options" disabled="true"></select>
+                    <span asp-validation-for="Mussel_Stream" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label">Mussel Habitat Assessment</label>
+                    <select asp-for="Mussel_Habitat" name="Mussel_Habitat" class="form-control" asp-items="@ViewBag.options" disabled="true"></select>
+                    <span asp-validation-for="Mussel_Habitat" class="text-danger"></span>
+                </div>
+                <div class="form-group col-md-4" id="MusselNotes">
+                    <label class="control-label">Notes</label>
+                    <p class="form-control">@Html.DisplayFor(model => model.Mussel_Notes)</p>
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $('#MusselNotes').hide();
+                    $('#Mussel_Habitat').change(function () {
+                        var selectedValue = $(this).val();
+                        console.log(selectedValue);
+                        if (selectedValue == "True") {
+                            $('#MusselNotes').show();
+                        }
+                        else {
+                            $('#MusselNotes').hide();
+                        }
+                    });
+                });
+            </script>
+
+            <div class="row">
+                <div class="form-group col-md-3">
+                    <label class="control-label">Bat Habitat Assessment Needed</label>
+                    <select asp-for="Bat_Habitat" name="Bat_Habitat" class="form-control" asp-items="@ViewBag.options" disabled="true"></select>
+                    <span asp-validation-for="Bat_Habitat" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label class="control-label">Within 2 miles of an Airport</label>
+                    <p class="form-control">@Html.DisplayFor(model => model.Within_Airport)</p>
+                    <p>If not then write 'No'.</p>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label class="control-label">NLEB 4D</label>
+                    <select asp-for="NLEB_4D" name="NLEB_4D" class="form-control" asp-items="@ViewBag.options" disabled="true"></select>
+                    <span asp-validation-for="NLEB_4D" class="text-danger"></span>
+                </div>
+
+                <div class="form-group col-md-3">
+                    <label class="control-label">Section 7 ESA Determination Key</label>
+                    <select asp-for="ESA_Key" name="ESA_Key" class="form-control" asp-items="@ViewBag.options" disabled="true"></select>
+                    <span asp-validation-for="ESA_Key" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <hr />
+
+            <div class="row">
+                <div class="form-group col-md-12">
+                    <label class="control-label">Natural Resources Notes</label>
+                    <textarea asp-for="Natural_Resources_Notes" class="form-control" disabled="true"></textarea>
+                    <span asp-validation-for="Natural_Resources_Notes" class="text-danger"></span>
+                </div>
+            </div>
+
+    </div>
 </div>
+
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
     <a asp-action="Index">Back to List</a>
 </div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
