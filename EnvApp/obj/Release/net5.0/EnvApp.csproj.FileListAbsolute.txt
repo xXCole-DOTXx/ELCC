@@ -474,3 +474,4 @@ C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Release\net5.0\EnvAp
 C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Release\net5.0\ref\EnvApp.dll
 C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Release\net5.0\EnvApp.pdb
 C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Release\net5.0\EnvApp.genruntimeconfig.cache
+C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Release\net5.0\Razor\Views\Profile\Index.cshtml.g.cs

@@ -298,7 +298,7 @@ namespace EnvApp.Controllers
                                       where s.Unit == "Archaeology"
                                       select s.Name).ToList();
             archUsers.Insert(0, "Select");
-            ViewBag.histUsers = archUsers.ToList();
+            ViewBag.archUsers = archUsers.ToList();
 
             List<SelectListItem> options = new()
             {

@@ -86,7 +86,9 @@ namespace EnvApp.Controllers
             {
                 typeOne.Adduser = User.Identity.Name;
                 typeOne.Date_Added = DateTime.Today;
-                System.Diagnostics.Debug.WriteLine("Prepared by again: " + typeOne.Prepared_By);
+                _context.Add(typeOne);
+                await _context.SaveChangesAsync();
+
                 //Send all History and Archaeology Unit Leaders an email
                 List<string> histAndArchLeads = (from s in _context.NR_Users
                                            where s.User_Type == "Unit Leader" && s.Unit == "History" || s.Unit == "Archaeology"
@@ -111,8 +113,7 @@ namespace EnvApp.Controllers
                 {
                     SendEmail("traci.l.cummings@wv.gov", emailText3, subject3);
                 }
-                _context.Add(typeOne);
-                await _context.SaveChangesAsync();
+                
                 return RedirectToAction(nameof(Index));
             }
             return View(typeOne);
@@ -205,22 +206,6 @@ namespace EnvApp.Controllers
         {
             return _context.TypeOne.Any(e => e.ID == id);
         }
-
-        /* public void SendEmail(string recipient)
-         {
-             //send an e-mail to procuremnt to let them know an invalid e-mail was provided, and that the software in question is expiring.  
-             string emailText = "<html><body><div><br>A new project has been added and you were listed as one of the managers.</ div ></ body ></ html >";
-             MailMessage myMail = new MailMessage("DOHEnvironmentalAppSrv@wv.gov", recipient);
-             myMail.IsBodyHtml = true;
-             myMail.Subject = "New ELCC Project";
-             myMail.Body = emailText;
-             SmtpClient client1 = new SmtpClient("relay.wv.gov");
-             client1.Port = 25;
-             client1.EnableSsl = false;
-             client1.UseDefaultCredentials = false; // Important: This line of code must be executed before setting the NetworkCredentials object, otherwise the setting will be reset (a bug in .NET)
-             NetworkCredential cred1 = new System.Net.NetworkCredential("DOHEnvironmentalAppSrv@wv.gov", "wnC6W6?C"); client1.Credentials = cred1;
-             client1.Send(myMail);
-         }*/
 
         public void SendEmail(string recipient, string message, string subject)
         {

@@ -1,0 +1,108 @@
+﻿@model EnvApp.ViewModels.MyProjectsViewModel
+
+@{
+    ViewData["Title"] = "Projects";
+}
+
+<h1>My Projects</h1>
+<hr />
+<h4>Screening Forms</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                State Project Number
+            </th>
+            <th>
+                Federal Project Number
+            </th>
+            <th>
+                Project Name
+            </th>
+            <th>
+                County
+            </th>
+            <th>
+                Coordinates
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Project_Screen)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.State_Project_Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Federal_Project_Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Project_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.County)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Coordinates)
+                </td>
+                <td>
+                    <a asp-controller="Project_Screen" asp-action="Details" asp-route-id="@item.ID">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<br />
+<hr />
+
+<h4>Type One Projects</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                State Project Number
+            </th>
+            <th>
+                Federal Project Number
+            </th>
+            <th>
+                Project Name
+            </th>
+            <th>
+                County
+            </th>
+            <th>
+                Coordinates
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.TypeOne)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.State_Project_Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Federal_Project_Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.County)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Coordinates)
+            </td>
+            <td>
+                <a asp-controller="TypeOnes" asp-action="Details" asp-route-id="@item.ID">Details</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
