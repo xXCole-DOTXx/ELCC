@@ -33,6 +33,7 @@
     ".NETCoreApp,Version=v5.0": {
       "EnvApp/1.0.0": {
         "dependencies": {
+          "ExpressiveAnnotations": "2.9.6",
           "Microsoft.EntityFrameworkCore.Design": "5.0.11",
           "Microsoft.EntityFrameworkCore.SqlServer": "5.0.11",
           "Microsoft.EntityFrameworkCore.Tools": "5.0.11",
@@ -327,6 +328,28 @@
           "EnvApp.dll": {}
         }
       },
+      "ExpressiveAnnotations/2.9.6": {
+        "dependencies": {
+          "Microsoft.jQuery.Unobtrusive.Validation": "3.1.1",
+          "Newtonsoft.Json": "11.0.2",
+          "jQuery": "1.12.4",
+          "jQuery.Validation": "1.10.0"
+        },
+        "runtime": {
+          "lib/net45/ExpressiveAnnotations.MvcUnobtrusive.dll": {
+            "assemblyVersion": "2.5.4.0",
+            "fileVersion": "2.5.4.0"
+          },
+          "lib/net45/ExpressiveAnnotations.dll": {
+            "assemblyVersion": "2.7.4.0",
+            "fileVersion": "2.7.4.0"
+          }
+        },
+        "compile": {
+          "lib/net45/ExpressiveAnnotations.MvcUnobtrusive.dll": {},
+          "lib/net45/ExpressiveAnnotations.dll": {}
+        }
+      },
       "Humanizer.Core/2.8.26": {
         "runtime": {
           "lib/netstandard2.0/Humanizer.dll": {
@@ -337,6 +360,11 @@
       },
       "jQuery/1.12.4": {},
       "jQuery.UI.Combined/1.12.1": {
+        "dependencies": {
+          "jQuery": "1.12.4"
+        }
+      },
+      "jQuery.Validation/1.10.0": {
         "dependencies": {
           "jQuery": "1.12.4"
         }
@@ -930,6 +958,12 @@
         },
         "compile": {
           "lib/netstandard2.0/Microsoft.IdentityModel.Tokens.dll": {}
+        }
+      },
+      "Microsoft.jQuery.Unobtrusive.Validation/3.1.1": {
+        "dependencies": {
+          "jQuery": "1.12.4",
+          "jQuery.Validation": "1.10.0"
         }
       },
       "Microsoft.NETCore.Platforms/3.1.0": {},
@@ -3502,6 +3536,13 @@
       "serviceable": false,
       "sha512": ""
     },
+    "ExpressiveAnnotations/2.9.6": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XwzHzmD2hVS+ywdAE1HsYIbGvEH3/OXTuZ1jamI6SOMa3QKh69uKiQG0YAie8dG3bDMvJBS6+KfXIRdRkkX49A==",
+      "path": "expressiveannotations/2.9.6",
+      "hashPath": "expressiveannotations.2.9.6.nupkg.sha512"
+    },
     "Humanizer.Core/2.8.26": {
       "type": "package",
       "serviceable": true,
@@ -3522,6 +3563,13 @@
       "sha512": "sha512-5B0LrPZ0TLlwplPRu43h7fgMtDxMMEF31HajUqHSOJ7bC6nyJUJy7AkcuGaJdBrrZAZutnSBgXT01BGiIIC4TQ==",
       "path": "jquery.ui.combined/1.12.1",
       "hashPath": "jquery.ui.combined.1.12.1.nupkg.sha512"
+    },
+    "jQuery.Validation/1.10.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3DkiimjcU1Ar8lzlO4V45LvPgBeY5ed7AbGd6MsEVlVFe3kOI1wQMbEbEPnB8aCdHTrxmAZon9gxkLhBRiRD3Q==",
+      "path": "jquery.validation/1.10.0",
+      "hashPath": "jquery.validation.1.10.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
       "type": "package",
@@ -3774,6 +3822,13 @@
       "sha512": "sha512-C3OqR3QfBQ7wcC7yAsdMQqay87OsV6yWPYG/Ai3n7dvmWIGkouQhXoVxRP0xz3cAFL4hxZBXyw4aLTC421PaMg==",
       "path": "microsoft.identitymodel.tokens/5.6.0",
       "hashPath": "microsoft.identitymodel.tokens.5.6.0.nupkg.sha512"
+    },
+    "Microsoft.jQuery.Unobtrusive.Validation/3.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4B/hmUZnLcT1F6P72HakRCmYFGLDU2zXaI+CXzHBEkrDA7BBjGtwls72un6NH8wvNyeysg6p0fStZpM7tUK1zQ==",
+      "path": "microsoft.jquery.unobtrusive.validation/3.1.1",
+      "hashPath": "microsoft.jquery.unobtrusive.validation.3.1.1.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/3.1.0": {
       "type": "package",

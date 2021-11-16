@@ -48,6 +48,8 @@ C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Release\net5.0\PubTm
 C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Release\net5.0\PubTmp\Out\EnvApp.dll
 C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Release\net5.0\PubTmp\Out\EnvApp.runtimeconfig.json
 C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Release\net5.0\PubTmp\Out\EnvApp.pdb
+C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Release\net5.0\PubTmp\Out\ExpressiveAnnotations.MvcUnobtrusive.dll
+C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Release\net5.0\PubTmp\Out\ExpressiveAnnotations.dll
 C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Release\net5.0\PubTmp\Out\Humanizer.dll
 C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Release\net5.0\PubTmp\Out\Microsoft.AspNetCore.Razor.Language.dll
 C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Release\net5.0\PubTmp\Out\Microsoft.Bcl.AsyncInterfaces.dll

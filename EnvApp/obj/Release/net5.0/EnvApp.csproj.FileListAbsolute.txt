@@ -475,3 +475,5 @@ C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Release\net5.0\ref\E
 C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Release\net5.0\EnvApp.pdb
 C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Release\net5.0\EnvApp.genruntimeconfig.cache
 C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Release\net5.0\Razor\Views\Profile\Index.cshtml.g.cs
+C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\bin\Release\net5.0\ExpressiveAnnotations.MvcUnobtrusive.dll
+C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\bin\Release\net5.0\ExpressiveAnnotations.dll

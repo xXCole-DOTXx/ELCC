@@ -89,9 +89,18 @@
             <script type="text/javascript">
                 $(document).ready(function () {
                     $('#usfwsType').hide();
+                    //When page loads check if the drop down is already yes
+                    var chosenValue = $('#USFWS').val();
+                    console.log(chosenValue);
+                    if (chosenValue == "True") {
+                        $('#usfwsType').show();
+                    }
+                    else {
+                        $('#usfwsType').hide();
+                    }
+                    //If the drop down selection changes check again
                     $('#USFWS').change(function () {
                         var selectedValue = $(this).val();
-                        console.log(selectedValue);
                         if (selectedValue == "True") {
                             $('#usfwsType').show();
                         }
@@ -124,10 +133,18 @@
             <script type="text/javascript">
                 $(document).ready(function () {
                     $('#CrayfishNotes').hide();
+                     //When page loads check if the drop down is already yes
+                    var crayfishValue = $('#Crayfish_Habitat_Assessment').val();
+                    if (crayfishValue == "True") {
+                        $('#CrayfishNotes').show();
+                    }
+                    else {
+                        $('#CrayfishNotes').hide();
+                    }
+                     //If the drop down selection changes check again
                     $('#Crayfish_Habitat_Assessment').change(function () {
-                        var selectedValue = $(this).val();
-                        console.log(selectedValue);
-                        if (selectedValue == "True") {
+                        var selectedCrayfishValue = $(this).val();
+                        if (selectedCrayfishValue == "True") {
                             $('#CrayfishNotes').show();
                         }
                         else {
@@ -156,10 +173,18 @@
             <script type="text/javascript">
                 $(document).ready(function () {
                     $('#MusselNotes').hide();
+                    //When page loads check if the drop down is already yes
+                    var musselValue = $('#Mussel_Habitat').val();
+                    if (musselValue == "True") {
+                        $('#MusselNotes').show();
+                    }
+                    else {
+                        $('#MusselNotes').hide();
+                    }
+                     //If the drop down selection changes check again
                     $('#Mussel_Habitat').change(function () {
-                        var selectedValue = $(this).val();
-                        console.log(selectedValue);
-                        if (selectedValue == "True") {
+                        var selectedMusselValue = $(this).val();
+                        if (selectedMusselValue == "True") {
                             $('#MusselNotes').show();
                         }
                         else {
