@@ -383,7 +383,8 @@ namespace EnvApp.Controllers
                 new SelectListItem { Value = "Wetzel", Text = "Wetzel County" },
                 new SelectListItem { Value = "Wirt", Text = "Wirt County" },
                 new SelectListItem { Value = "Wood", Text = "Wood County" },
-                new SelectListItem { Value = "Wyoming", Text = "Wyoming County" }
+                new SelectListItem { Value = "Wyoming", Text = "Wyoming County" },
+                new SelectListItem { Value = "Various", Text = "Various Counties" }
             };
             ViewBag.counties = counties;
         }
