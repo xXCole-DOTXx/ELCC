@@ -91,7 +91,6 @@
                     $('#usfwsType').hide();
                     //When page loads check if the drop down is already yes
                     var chosenValue = $('#USFWS').val();
-                    console.log(chosenValue);
                     if (chosenValue == "True") {
                         $('#usfwsType').show();
                     }
@@ -121,7 +120,7 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label class="control-label">Crayfish Habitat Assessment</label>
-                    <select asp-for="Crayfish_Habitat_Assessment" name="Crayfish" class="form-control" asp-items="@ViewBag.options"></select>
+                    <select asp-for="Crayfish_Habitat_Assessment" name="Crayfish_Habitat_Assessment" class="form-control" asp-items="@ViewBag.options"></select>
                     <span asp-validation-for="Crayfish_Habitat_Assessment" class="text-danger"></span>
                 </div>
                 <div class="form-group col-md-4" id="CrayfishNotes">
@@ -137,18 +136,22 @@
                     var crayfishValue = $('#Crayfish_Habitat_Assessment').val();
                     if (crayfishValue == "True") {
                         $('#CrayfishNotes').show();
+                        console.log("Crayfish Hab on load= " + crayfishValue);
                     }
                     else {
                         $('#CrayfishNotes').hide();
+                        console.log("Crayfish Hab on load= " + crayfishValue);
                     }
                      //If the drop down selection changes check again
                     $('#Crayfish_Habitat_Assessment').change(function () {
                         var selectedCrayfishValue = $(this).val();
                         if (selectedCrayfishValue == "True") {
                             $('#CrayfishNotes').show();
+                            console.log("Crayfish Hab = " + selectedCrayfishValue);
                         }
                         else {
                             $('#CrayfishNotes').hide();
+                            console.log("Crayfish Hab = " + selectedCrayfishValue);
                         }
                     });
                 });
@@ -177,18 +180,22 @@
                     var musselValue = $('#Mussel_Habitat').val();
                     if (musselValue == "True") {
                         $('#MusselNotes').show();
+                        console.log("Mussel Hab on load= " + musselValue);
                     }
                     else {
                         $('#MusselNotes').hide();
+                        console.log("Mussel Hab on load= " + musselValue);
                     }
                      //If the drop down selection changes check again
                     $('#Mussel_Habitat').change(function () {
                         var selectedMusselValue = $(this).val();
                         if (selectedMusselValue == "True") {
                             $('#MusselNotes').show();
+                            console.log("Mussel Hab = " + selectedMusselValue);
                         }
                         else {
                             $('#MusselNotes').hide();
+                            console.log("Mussel Hab = " + selectedMusselValue);
                         }
                     });
                 });

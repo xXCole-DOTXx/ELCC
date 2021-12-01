@@ -444,7 +444,6 @@ C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Debug\net5.0\EnvApp.
 C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Debug\net5.0\EnvApp.RazorAssemblyInfo.cache
 C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Debug\net5.0\EnvApp.RazorAssemblyInfo.cs
 C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Debug\net5.0\staticwebassets\EnvApp.StaticWebAssets.Manifest.cache
-C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Debug\net5.0\staticwebassets\EnvApp.StaticWebAssets.xml
 C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Debug\net5.0\scopedcss\bundle\EnvApp.styles.css
 C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Debug\net5.0\EnvApp.TagHelpers.input.cache
 C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\obj\Debug\net5.0\EnvApp.TagHelpers.output.cache
