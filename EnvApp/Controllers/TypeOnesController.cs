@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using EnvApp.Models.DB;
 using System.Net.Mail;
 using System.Net;
+using EnvApp.DTOs;
 
 namespace EnvApp.Controllers
 {
@@ -77,46 +78,50 @@ namespace EnvApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,State_Project_Number,Federal_Project_Number,Name,Route_Number,County,Work_Type,Coordinates,Project_Description,Federal_Aid,Minimal_Project_Verification,CE_Category,Amms,Activities_Agreement,Arch_RE,Hist_RE,Arch_RE_Date,Hist_RE_Date,Through_Lanes,Close_Road,ROW_Acquisition,Access_Control,Fifty_Year_Structure,Agency_Coordination,IPAC_Screening_Zone,Section_404_Permit,Ground_Disturbance,Waterway,Special_Use_Permit,Floodplain,Prepared_By,Approved_By,Adduser,Date_Added")] TypeOne typeOne, string Assessment, bool? Bat)
+        public async Task<IActionResult> Create(TypeOneDTO dto, string Assessment, bool? Bat)
         {
             DropDowns();
 
-            System.Diagnostics.Debug.WriteLine("Prepared by: " + typeOne.Prepared_By);
-            if (ModelState.IsValid)
-            {
-                typeOne.Adduser = User.Identity.Name;
-                typeOne.Date_Added = DateTime.Today;
-                _context.Add(typeOne);
-                await _context.SaveChangesAsync();
+            System.Diagnostics.Debug.WriteLine("Prepared by: " + dto.Prepared_By);
 
-                //Send all History and Archaeology Unit Leaders an email
-                List<string> histAndArchLeads = (from s in _context.NR_Users
-                                           where s.User_Type == "Unit Leader" && s.Unit == "History" || s.Unit == "Archaeology"
-                                           select s.Email_Address).ToList();
-                string emailText1 = "<html><body><div><br>A new Type One form state project number " + typeOne.State_Project_Number + " has been created and you were listed as a Unit Leader. <br> Check it out here: https://dotappstest.transportation.wv.gov/environmentalapp/TypeOnes/Details/"+typeOne.ID+"</ div ></ body ></ html >";
-                string subject1 = "ELCC: New Type One Project";
-                foreach (var email in histAndArchLeads)
-                {
-                    //SendEmail(email, emailText1, subject1);
-                }
-                //Send an email to Traci if project needs a Mussel or Crayfish habitat assessement (Natural resources Lead)
-                if (Assessment != "No" )
-                {
-                    string emailText2 = "<html><body><div><br>A new Type One form state project number " + typeOne.State_Project_Number +  " has been created that needs " + Assessment + " assessment(s). <br> Check it out here: https://dotappstest.transportation.wv.gov/environmentalapp/TypeOnes/Details/" + typeOne.ID + " </ div ></ body ></ html >";
-                    string subject2 = "ELCC: New Type One Project Needs Assessment(s).";
-                    SendEmail("traci.l.cummings@wv.gov", emailText2, subject2);
-                }
-                //Send an email to bat lady if project needs a bat habitat assessement
-                string emailText3 = "<html><body><div><br>A new Type One form state project number " + typeOne.State_Project_Number + " has been created that needs a bat habitat assessment. <br> Check it out here: https://dotappstest.transportation.wv.gov/environmentalapp/TypeOnes/Details/" + typeOne.ID + "</ div ></ body ></ html >";
-                string subject3 = "ELCC: New Type One Project Needs a Bat Habitat Assessment.";
-                if (Bat == true)
-                {
-                    SendEmail("traci.l.cummings@wv.gov", emailText3, subject3);
-                }
-                
-                return RedirectToAction(nameof(Index));
+            dto.Adduser = User.Identity.Name;
+            dto.Date_Added = DateTime.Today;
+
+            try
+            {
+                _context.Add(dto.ToCompletedTypeOne());
+                await _context.SaveChangesAsync();
+            } catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("It didn't work.");
+                System.Diagnostics.Debug.WriteLine(ex);
             }
-            return View(typeOne);
+            //Send all History and Archaeology Unit Leaders an email
+            List<string> histAndArchLeads = (from s in _context.NR_Users
+                                        where s.User_Type == "Unit Leader" && s.Unit == "History" || s.Unit == "Archaeology"
+                                        select s.Email_Address).ToList();
+            string emailText1 = "<html><body><div><br>A new Type One form state project number " + dto.State_Project_Number + " has been created and you were listed as a Unit Leader. <br> Check it out here: https://dotappstest.transportation.wv.gov/environmentalapp/TypeOnes/Details/"+dto.ID+"</ div ></ body ></ html >";
+            string subject1 = "ELCC: New Type One Project";
+            foreach (var email in histAndArchLeads)
+            {
+                //SendEmail(email, emailText1, subject1);
+            }
+            //Send an email to Traci if project needs a Mussel or Crayfish habitat assessement (Natural resources Lead)
+            if (Assessment != "No" )
+            {
+                string emailText2 = "<html><body><div><br>A new Type One form state project number " + dto.State_Project_Number +  " has been created that needs " + Assessment + " assessment(s). <br> Check it out here: https://dotappstest.transportation.wv.gov/environmentalapp/TypeOnes/Details/" + dto.ID + " </ div ></ body ></ html >";
+                string subject2 = "ELCC: New Type One Project Needs Assessment(s).";
+                SendEmail("traci.l.cummings@wv.gov", emailText2, subject2);
+            }
+            //Send an email to bat lady if project needs a bat habitat assessement
+            string emailText3 = "<html><body><div><br>A new Type One form state project number " + dto.State_Project_Number + " has been created that needs a bat habitat assessment. <br> Check it out here: https://dotappstest.transportation.wv.gov/environmentalapp/TypeOnes/Details/" + dto.ID + "</ div ></ body ></ html >";
+            string subject3 = "ELCC: New Type One Project Needs a Bat Habitat Assessment.";
+            if (Bat == true)
+            {
+                SendEmail("traci.l.cummings@wv.gov", emailText3, subject3);
+            }
+                
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: TypeOnes/Edit/5
@@ -141,36 +146,32 @@ namespace EnvApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("ID,State_Project_Number,Federal_Project_Number,Name,Route_Number,County,Work_Type,Coordinates,Project_Description,Federal_Aid,Minimal_Project_Verification,CE_Category,Amms,Activities_Agreement,Arch_RE,Hist_RE,Arch_RE_Date,Hist_RE_Date,Through_Lanes,Close_Road,ROW_Acquisition,Access_Control,Fifty_Year_Structure,Agency_Coordination,IPAC_Screening_Zone,Section_404_Permit,Ground_Disturbance,Waterway,Special_Use_Permit,Floodplain,Prepared_By,Approved_By,Adduser,Date_Added")] TypeOne typeOne)
+        public async Task<IActionResult> Edit(long id, TypeOneDTO dto)
         {
-            if (id != typeOne.ID)
+            if (id != dto.ID)
             {
                 return NotFound();
             }
 
             DropDowns();
 
-            if (ModelState.IsValid)
+            try
             {
-                try
-                {
-                    _context.Update(typeOne);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!TypeOneExists(typeOne.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                _context.Update(dto.ToCompletedTypeOne());
+                await _context.SaveChangesAsync();
             }
-            return View(typeOne);
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!TypeOneExists(dto.ID))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: TypeOnes/Delete/5

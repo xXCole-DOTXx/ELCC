@@ -101,64 +101,71 @@ namespace EnvApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,State_Project_Number,Federal_Project_Number,Project_Name,County,Memo_Date,From,Authorization,DSN_PM,History,History_PM,Review_Exempt_H,SHPO_Approval_H,Archaeology,Archaeology_PM,Review_Exempt_A,SHPO_Approval_A,ESA_Key,Crayfish,Crayfish_Habitat_Assessment,NLEB_4D,USFWS,USFWS_Type,Mussel_Habitat,Mussel_Stream,Within_Airport,ToPo_Quad_Name,Bat_Habitat,Bars,Coordinates,Natural_Resources_Notes,Adduser,Date_Added,Crayfish_Notes,Mussel_Notes")] Project_Screen project_Screen)
+        public async Task<IActionResult> Create(ProjScreenDTO dto)
         {
             DropDowns();
-            if (ModelState.IsValid)
+
+            dto.Adduser = User.Identity.Name;
+            dto.Date_Added = DateTime.Today;
+
+            //Get All unit leads
+            var unitLeads = (from s in _context.NR_Users
+                                where s.User_Type == "Unit Leader"
+                                select s.Email_Address).ToList();
+
+            string[] leads = unitLeads.ToArray();           
+            for (int i = 0; i < leads.Length; i++)
             {
-                project_Screen.Adduser = User.Identity.Name;
-                project_Screen.Date_Added = DateTime.Today;
+                //SendEmail(leads[i]);
+                System.Diagnostics.Debug.WriteLine(leads[i].ToString());
+            }
 
-                var unitLeads = (from s in _context.NR_Users
-                                 where s.User_Type == "Unit Leader"
-                                 select s.Email_Address).ToList();
+            if (dto.Bat_Habitat)
+            {
+                var batLady = (from z in _context.NR_Users
+                                where z.Name == "Cole Perry"
+                                select z.Email_Address);
+                foreach (var email in batLady)
+                    System.Diagnostics.Debug.WriteLine(email);
+                    //SendEmail(email);
+            }
 
-                string[] leads = unitLeads.ToArray();           
-                for (int i = 0; i < leads.Length; i++)
+            if( dto.Crayfish == true || dto.Crayfish_Habitat_Assessment == true || dto.Mussel_Habitat == true || dto.Mussel_Stream == true)
+            {
+                StringBuilder message = new StringBuilder("New project, " + dto.Project_Name + ", requires ");
+                if (dto.Crayfish)
                 {
-                    //SendEmail(leads[i]);
-                    System.Diagnostics.Debug.WriteLine(leads[i].ToString());
+                    message.Append("a crayfish survey, ");
                 }
-
-                if (project_Screen.Bat_Habitat)
+                if (dto.Crayfish_Habitat_Assessment)
                 {
-                    var batLady = (from z in _context.NR_Users
-                                   where z.Name == "Cole Perry"
-                                   select z.Email_Address);
-                    foreach (var email in batLady)
-                        System.Diagnostics.Debug.WriteLine(email);
-                        //SendEmail(email);
+                    message.Append("a crayfish habitat assessment, ");
                 }
-
-                if( project_Screen.Crayfish == true || project_Screen.Crayfish_Habitat_Assessment == true || project_Screen.Mussel_Habitat == true || project_Screen.Mussel_Stream == true)
+                if (dto.Mussel_Habitat)
                 {
-                    StringBuilder message = new StringBuilder("New project, " + project_Screen.Project_Name + ", requires ");
-                    if (project_Screen.Crayfish)
-                    {
-                        message.Append("a crayfish survey, ");
-                    }
-                    if (project_Screen.Crayfish_Habitat_Assessment)
-                    {
-                        message.Append("a crayfish habitat assessment, ");
-                    }
-                    if (project_Screen.Mussel_Habitat)
-                    {
-                        message.Append("a mussel habitat assessment, ");
-                    }
-                    if (project_Screen.Mussel_Stream)
-                    {
-                        message.Append("a mussel stream survey, ");
-                    }
-                    message.Append("and requires your attention.");
-                    System.Diagnostics.Debug.WriteLine(message);
-                    //SendEmail("e096752@wv.gov");
+                    message.Append("a mussel habitat assessment, ");
                 }
+                if (dto.Mussel_Stream)
+                {
+                    message.Append("a mussel stream survey, ");
+                }
+                message.Append("and requires your attention.");
+                System.Diagnostics.Debug.WriteLine(message);
+                //SendEmail("e096752@wv.gov");
+            }
 
-                _context.Add(project_Screen);
+
+            try
+            {
+                _context.Add(dto.ToCompletedProjScreen());
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
+            } catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine("It didn't work.");
+                System.Diagnostics.Debug.WriteLine(ex);
             }
-            return View(project_Screen);
+            return View(dto.ToCompletedProjScreen());
         }
 
         // GET: Project_Screen/Edit/5
@@ -183,48 +190,44 @@ namespace EnvApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("ID,State_Project_Number,Federal_Project_Number,Project_Name,County,Memo_Date,From,Authorization,DSN_PM,History,History_PM,Review_Exempt_H,SHPO_Approval_H,Archaeology,Archaeology_PM,Review_Exempt_A,SHPO_Approval_A,ESA_Key,Crayfish,Crayfish_Habitat_Assessment,NLEB_4D,USFWS,USFWS_Type,Mussel_Habitat,Mussel_Stream,Within_Airport,ToPo_Quad_Name,Bat_Habitat,Bars,Coordinates,Natural_Resources_Notes,Adduser,Date_Added,Crayfish_Notes,Mussel_Notes")] Project_Screen project_Screen)
+        public async Task<IActionResult> Edit(long id, ProjScreenDTO dto)
         {
             DropDowns();
-            if (id != project_Screen.ID)
+            if (id != dto.ID)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            try
             {
-                try
-                {
-                    _context.Update(project_Screen);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!Project_ScreenExists(project_Screen.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                //If all 3 managers are not null then send an email to the DSN_PM
-                if(project_Screen.Archaeology_PM != null){
-                    if (project_Screen.History_PM != null)
-                    {
-                        if (project_Screen.DSN_PM != null)
-                        {
-                            var projManager = (from s in _context.NR_Users where s.Name == project_Screen.DSN_PM select s.Email_Address);
-                            foreach (var email in projManager)
-                                SendEmail(email);
-                                //System.Diagnostics.Debug.WriteLine(email);
-                        }
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                _context.Update(dto.ToCompletedProjScreen());
+                await _context.SaveChangesAsync();
             }
-            return View(project_Screen);
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!Project_ScreenExists(dto.ID))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+            //If all 3 managers are not null then send an email to the DSN_PM
+            if(dto.Archaeology_PM != null){
+                if (dto.History_PM != null)
+                {
+                    if (dto.DSN_PM != null)
+                    {
+                        var projManager = (from s in _context.NR_Users where s.Name == dto.DSN_PM select s.Email_Address);
+                        foreach (var email in projManager)
+                            SendEmail(email);
+                            //System.Diagnostics.Debug.WriteLine(email);
+                    }
+                }
+            }
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: Project_Screen/Delete/5
