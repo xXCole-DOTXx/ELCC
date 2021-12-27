@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace EnvApp.Models.DB
 {
     [Table("Type_Two")]
-    public class TypeTwo
+    public partial class TypeTwo
     {
         [Key]
         public long ID { get; set; }

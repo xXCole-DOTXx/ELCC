@@ -59,8 +59,4 @@ namespace EnvApp.Models.DB
         public string Mussel_Notes { get; set; }
 
     }
-    public class MyCustomAttribute : Attribute
-    {
-        public string SomeProperty { get; set; }
-    }
 }

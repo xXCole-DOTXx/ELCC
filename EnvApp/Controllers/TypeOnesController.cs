@@ -111,14 +111,14 @@ namespace EnvApp.Controllers
             {
                 string emailText2 = "<html><body><div><br>A new Type One form state project number " + dto.State_Project_Number +  " has been created that needs " + Assessment + " assessment(s). <br> Check it out here: https://dotappstest.transportation.wv.gov/environmentalapp/TypeOnes/Details/" + dto.ID + " </ div ></ body ></ html >";
                 string subject2 = "ELCC: New Type One Project Needs Assessment(s).";
-                SendEmail("traci.l.cummings@wv.gov", emailText2, subject2);
+                //SendEmail("traci.l.cummings@wv.gov", emailText2, subject2);
             }
             //Send an email to bat lady if project needs a bat habitat assessement
             string emailText3 = "<html><body><div><br>A new Type One form state project number " + dto.State_Project_Number + " has been created that needs a bat habitat assessment. <br> Check it out here: https://dotappstest.transportation.wv.gov/environmentalapp/TypeOnes/Details/" + dto.ID + "</ div ></ body ></ html >";
             string subject3 = "ELCC: New Type One Project Needs a Bat Habitat Assessment.";
             if (Bat == true)
             {
-                SendEmail("traci.l.cummings@wv.gov", emailText3, subject3);
+                //SendEmail("traci.l.cummings@wv.gov", emailText3, subject3);
             }
                 
             return RedirectToAction(nameof(Index));
@@ -211,14 +211,18 @@ namespace EnvApp.Controllers
         public void SendEmail(string recipient, string message, string subject)
         {
             //send an e-mail to procuremnt to let them know an invalid e-mail was provided, and that the software in question is expiring.  
-            MailMessage myMail = new MailMessage("DOHEnvironmentalAppSrv@wv.gov", recipient);
-            myMail.IsBodyHtml = true;
-            myMail.Subject = subject;
-            myMail.Body = message;
-            SmtpClient client1 = new SmtpClient("relay.wv.gov");
-            client1.Port = 25;
-            client1.EnableSsl = false;
-            client1.UseDefaultCredentials = false; // Important: This line of code must be executed before setting the NetworkCredentials object, otherwise the setting will be reset (a bug in .NET)
+            MailMessage myMail = new MailMessage("DOHEnvironmentalAppSrv@wv.gov", recipient)
+            {
+                IsBodyHtml = true,
+                Subject = subject,
+                Body = message
+            };
+            SmtpClient client1 = new SmtpClient("relay.wv.gov")
+            {
+                Port = 25,
+                EnableSsl = false,
+                UseDefaultCredentials = false // Important: This line of code must be executed before setting the NetworkCredentials object, otherwise the setting will be reset (a bug in .NET)
+            };
             NetworkCredential cred1 = new System.Net.NetworkCredential("DOHEnvironmentalAppSrv@wv.gov", "wnC6W6?C"); client1.Credentials = cred1;
             client1.Send(myMail);
         }

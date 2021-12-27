@@ -1,0 +1,108 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = EnvApp
+build_property.RootNamespace = EnvApp
+build_property.ProjectDir = C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\e096752\Documents\Cole's Git Repos\ELCC\EnvApp
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/e096752/Documents/Cole's Git Repos/ELCC/EnvApp/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/e096752/Documents/Cole's Git Repos/ELCC/EnvApp/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/e096752/Documents/Cole's Git Repos/ELCC/EnvApp/Views/NR_User/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTlJfVXNlclxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/e096752/Documents/Cole's Git Repos/ELCC/EnvApp/Views/NR_User/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTlJfVXNlclxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/e096752/Documents/Cole's Git Repos/ELCC/EnvApp/Views/NR_User/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTlJfVXNlclxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/e096752/Documents/Cole's Git Repos/ELCC/EnvApp/Views/NR_User/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTlJfVXNlclxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/e096752/Documents/Cole's Git Repos/ELCC/EnvApp/Views/NR_User/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTlJfVXNlclxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/e096752/Documents/Cole's Git Repos/ELCC/EnvApp/Views/Profile/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvZmlsZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/e096752/Documents/Cole's Git Repos/ELCC/EnvApp/Views/Project_Screen/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdF9TY3JlZW5cQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/e096752/Documents/Cole's Git Repos/ELCC/EnvApp/Views/Project_Screen/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdF9TY3JlZW5cRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/e096752/Documents/Cole's Git Repos/ELCC/EnvApp/Views/Project_Screen/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdF9TY3JlZW5cRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/e096752/Documents/Cole's Git Repos/ELCC/EnvApp/Views/Project_Screen/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdF9TY3JlZW5cRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/e096752/Documents/Cole's Git Repos/ELCC/EnvApp/Views/Project_Screen/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHJvamVjdF9TY3JlZW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/e096752/Documents/Cole's Git Repos/ELCC/EnvApp/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/e096752/Documents/Cole's Git Repos/ELCC/EnvApp/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/e096752/Documents/Cole's Git Repos/ELCC/EnvApp/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/e096752/Documents/Cole's Git Repos/ELCC/EnvApp/Views/TypeOnes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZU9uZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/e096752/Documents/Cole's Git Repos/ELCC/EnvApp/Views/TypeOnes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZU9uZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/e096752/Documents/Cole's Git Repos/ELCC/EnvApp/Views/TypeOnes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZU9uZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/e096752/Documents/Cole's Git Repos/ELCC/EnvApp/Views/TypeOnes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZU9uZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/e096752/Documents/Cole's Git Repos/ELCC/EnvApp/Views/TypeOnes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVHlwZU9uZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/e096752/Documents/Cole's Git Repos/ELCC/EnvApp/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/e096752/Documents/Cole's Git Repos/ELCC/EnvApp/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
